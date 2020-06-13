@@ -298,7 +298,7 @@ class App extends React.Component {
           /> */}
           <footer style={{display: 'flex', paddingTop: '120px', paddingBottom: '16px', justifyContent: 'center'}} className="footer-container">
             <span className="footer-text">
-             {"</>"} with ❤️ by <a href="https://github.com/ananddharne" target="blank"> <span>Anand</span> </a>
+             {"Made"} with ❤️ by <a href="https://github.com/ananddharne" target="blank"> <span>Anand</span> </a>
             </span>
           </footer>
         </div>
