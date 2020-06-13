@@ -2,7 +2,7 @@ import React from "react";
 import jsonp from "jsonp";
 import ExampleWithLightbox from "./ExampleWithLightbox";
 import henna from "./henna-painted-hand.svg";
-import bride from "./bride.svg";
+import bride from "./wedding.svg";
 import wedding from "./indian.svg";
 import samosa from "./samosa.svg";
 import heart from "./heart.svg";
@@ -105,29 +105,30 @@ class App extends React.Component {
     }, url);
 
     jsonp(url, { name: "jsonFlickrApi" }, (err, data) => {
-      let photos = data.photoset.photo.map(item => {
-        let aspectRatio = parseFloat(item.width_o / item.height_o);
-        return {
-          src: item.url_l,
-          width: parseInt(item.width_o),
-          height: parseInt(item.height_o),
-          title: item.title,
-          alt: item.title,
-          key: item.id,
-          srcSet: [
-            `${item.url_m} ${item.width_m}w`,
-            `${item.url_c} ${item.width_c}w`,
-            `${item.url_l} ${item.width_l}w`,
-            `${item.url_h} ${item.width_h}w`
-          ],
-          sizes: "(min-width: 480px) 50vw, (min-width: 1024px) 33.3vw, 100vw"
-        };
-      });
-      this.setState({
-        photos: photos
-      });
-      console.log(this.state.photos[0]);
-   
+      if(data.photoset){
+        let photos = data.photoset.photo.map(item => {
+          let aspectRatio = parseFloat(item.width_o / item.height_o);
+          return {
+            src: item.url_l,
+            width: parseInt(item.width_o),
+            height: parseInt(item.height_o),
+            title: item.title,
+            alt: item.title,
+            key: item.id,
+            srcSet: [
+              `${item.url_m} ${item.width_m}w`,
+              `${item.url_c} ${item.width_c}w`,
+              `${item.url_l} ${item.width_l}w`,
+              `${item.url_h} ${item.width_h}w`
+            ],
+            sizes: "(min-width: 480px) 50vw, (min-width: 1024px) 33.3vw, 100vw"
+          };
+        });
+        this.setState({
+          photos: photos
+        });
+      }
+
     });
     // let urly =
       
@@ -168,7 +169,7 @@ class App extends React.Component {
         <div className="App">
           <div id="cover"></div>
           <div className="bg-text">
-            <span> Komal  ❤️ Anand </span>
+            {/* <span> Komal  ❤️ Anand </span> */}
               {/* <div> Komal </div>
               <img style={{ height: "31px", width: "30px" }} src={heart}></img>
               {/* <div class="heart heart1"></div> */}
@@ -203,8 +204,9 @@ class App extends React.Component {
                 <img
                   style={{ height: "30px", width: "30px" }}
                   src={henna}
+                  className="mehendi"
                 ></img>
-                Mehendi
+                <span class="tab-name">Mehendi</span>
               </li>
               <li
                 onClick={(e) => this.loadPhotos("72157714386479743", "account1", e)}
@@ -213,13 +215,15 @@ class App extends React.Component {
                 <img
                   style={{
                     cursor: "pointer",
-                    height: "30px",
-                    width: "30px",
-                    marginRight: "3px"
+                    height: "28px",
+                    className:"haldi",
+                    width: "28px",
+                    marginLeft: "3px"
                   }}
                   src={samosa}
                 ></img>
-                Haldi
+                
+                <span class="tab-name">Haldi</span>
               </li>
               <li
                 onClick={(e) => this.loadPhotos("72157714642026603", "account2", e)}
@@ -228,43 +232,45 @@ class App extends React.Component {
                 <img
                   style={{
                     cursor: "pointer",
-                    height: "30px",
-                    width: "30px",
-                    marginRight: "3px"
+                    height: "28px",
+                    width: "28px",
+                    marginLeft: "3px",
+
+                    className:"wedding"                    
                   }}
                   src={wedding}
                 ></img>
-                Wedding
+                <span class="tab-name">Wedding</span>
               </li>
               <li
                 onClick={(e) => this.loadPhotos("72157714641822212", "account1", e)}
                 style={{ marginRight: "20px" }}
               >
-                <img
+                <img className="sangeet"
                   style={{
                     cursor: "pointer",
-                    height: "30px",
-                    width: "30px",
-                    marginRight: "3px"
+                    height: "28px",
+                    width: "28px",
                   }}
                   src={floor}
                 ></img>
-                Sangeet
+                <span class="tab-name">Sangeet</span>
               </li>
               <li
                 onClick={(e) => this.loadPhotos("72157714641076231", "account2", e)}
                 style={{ marginRight: "20px" }}
               >
+                                  
                 <img
                   style={{
                     cursor: "pointer",
-                    height: "30px",
-                    width: "30px",
-                    marginRight: "3px"
+                    height: "28px",
+                    width: "28px",
                   }}
                   src={bride}
                 ></img>
-                Reception
+                <span class="tab-name">Reception</span>
+                
               </li>
             </ul>
           </div>
