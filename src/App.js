@@ -250,6 +250,7 @@ class App extends React.Component {
                     cursor: "pointer",
                     height: "28px",
                     width: "28px",
+                    marginLeft: "5px"
                   }}
                   src={floor}
                 ></img>
@@ -290,9 +291,9 @@ class App extends React.Component {
             ]}
             bottom="Made with  ❤️ by https://github.com/ananddharne"
           /> */}
-          <footer style={{display: 'flex', paddingTop: '150px', justifyContent: 'center'}} className="footer-container">
+          <footer style={{display: 'flex', paddingTop: '120px', paddingBottom: '16px', justifyContent: 'center'}} className="footer-container">
             <span className="footer-text">
-            Made with  ❤️ by <a href="https://github.com/ananddharne" target="blank"> Anand </a>
+            Made with ❤️by <a href="https://github.com/ananddharne" target="blank"> <span>Anand</span> </a>
             </span>
           </footer>
         </div>

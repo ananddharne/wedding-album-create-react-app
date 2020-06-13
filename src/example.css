@@ -160,6 +160,7 @@ iframe{
   font-family: 'Josefin Sans', cursive;
 }
 
+
 ul.navbar li {
   font-family: OpenSans;
   /* color: #000; */
@@ -174,11 +175,30 @@ ul.navbar li {
   padding: 0.5px;
 } 
 
+ul.navbar li:hover span {
+  box-shadow: 0 2px 0 black;
+  /* box-shadow: 0 3px 0 #; */
+  color: #000;
+  top: 3px;
+} 
+
+
 ul.navbar li.active {
   box-shadow: 0 2px 0 black;
   /* box-shadow: 0 3px 0 #; */
   color: #000;
   top: 3px;
+ } 
+
+ ul.navbar li.active:hover span {
+  box-shadow: 0 2px 0 #fff;
+  /* box-shadow: 0 3px 0 #; */
+  /* color: orange; */
+  /* top: 3px; */
+ } 
+
+ ul.navbar li.active span {
+  color: orange;
  } 
 
 
@@ -224,7 +244,7 @@ right:0;
 
 .footer-text {
   font-family: 'Josefin Sans', cursive;
-  font-weight: 500px;
+  font-weight: bold;
   font-size: 18px;
 }
 
