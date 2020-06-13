@@ -70,7 +70,7 @@ class App extends React.Component {
     }
     // reception
     if(photoset_id === '72157714641076231') {
-
+      this.setState({ photosPerPage: 120 });
     }
     if(photoset_id === '72157714386479743') {
 
