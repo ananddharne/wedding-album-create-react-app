@@ -159,7 +159,8 @@ iframe{
 
 ul.navbar li {
   font-family: OpenSans;
-  color: #000;
+  /* color: #000; */
+  color: #9D9D9D;
   background-color: rgb(251, 251, 251);
   /* border: 1px solid #000; */
   border-radius: 5px;
@@ -173,6 +174,7 @@ ul.navbar li {
 ul.navbar li.active {
   box-shadow: 0 2px 0 black;
   /* box-shadow: 0 3px 0 #; */
+  color: #000;
   top: 3px;
  } 
 
@@ -206,51 +208,6 @@ ul.navbar li.active {
   text-decoration: none;
 }
 
-/* beating heart */
-/* .sangeet{
-  margin-right: 16px;
-} */
-
-.heart {
-  position: absolute;
-  width: 100px;
-  height: 90px;
-  top: 50%;
-  left: 50%;
-  margin-top: -45px;
-  margin-left: -50px;
-}
-.heart:before,
-.heart:after {
-  position: absolute;
-  content: "";
-  left: 50px;
-  top: 0;
-  width: 50px;
-  height: 80px;
-  background: #fc2e5a;
-  border-radius: 50px 50px 0 0;
-  transform: rotate(-45deg);
-  transform-origin: 0 100%;
-}
-.heart:after {
-  left: 0;
-  transform: rotate(45deg);
-  transform-origin :100% 100%;
-}
-
-.heart1{
-  animation: pounding .5s linear infinite alternate;
-}
-.heart1.active{
-   animation: heart-anim 1s linear .4s;
-}
-.heart2{
-   animation: pounding .5s linear infinite alternate;
-}
-.heart1:after, .heart1:before{
-  background-color: #ff7693;
-}
 
 @keyframes pounding{
   0%{ transform: scale(1.5); }
