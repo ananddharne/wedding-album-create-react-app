@@ -73,6 +73,7 @@ class App extends React.Component {
       this.setState({ photosPerPage: 120 });
     }
     if(photoset_id === '72157714386479743') {
+      this.setState({ photosPerPage: 68 });
 
     }
     let urlParams;
@@ -287,7 +288,7 @@ class App extends React.Component {
                 openExternal: true
               }
             ]}
-            bottom="Made with ❤️by Anand"
+            bottom="Made with ❤️by <span> Anand <span>"
           />
         </div>
       );
