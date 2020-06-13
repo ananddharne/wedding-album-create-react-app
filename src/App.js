@@ -188,36 +188,35 @@ class App extends React.Component {
           >
             <ul className="navbar"
               style={{
-                display: "flex",
-                paddingInlineStart: "20px",
-                justifyContent: "flex-start",
-                listStyle: "none",
-                paddingTop: "20px",
-                paddingBottom: "20px",
+                // display: "flex",
+                // paddingInlineStart: "20px",
+                // justifyContent: "center",
+                // listStyle: "none",
+                // paddingTop: "20px",
+                // paddingBottom: "20px",
               }}
             >
               <li
                 onClick={(e) => this.loadPhotos("72157714640654906", "account1", e)}
-                style={{ cursor: "pointer", marginRight: "20px" }}
+                // style={{ cursor: "pointer", marginRight: "30px" }}
               >
                 <img
                   style={{ height: "30px", width: "30px" }}
                   src={henna}
                   className="mehendi"
                 ></img>
-                <span class="tab-name">Mehendi</span>
+                <span class="tab-name"> Mehendi</span>
               </li>
               <li
                 onClick={(e) => this.loadPhotos("72157714386479743", "account1", e)}
-                style={{ marginRight: "20px" }}
+                // style={{ marginRight: "30px" }}
               >
-                <img
+                <img className="sangeet"
                   style={{
                     cursor: "pointer",
-                    height: "28px",
-                    className:"haldi",
-                    width: "28px",
-                    marginLeft: "3px"
+                    height: "30px",
+                    width: "30px",
+                    // marginLeft: "3px"
                   }}
                   src={samosa}
                 ></img>
@@ -226,14 +225,14 @@ class App extends React.Component {
               </li>
               <li
                 onClick={(e) => this.loadPhotos("72157714642026603", "account2", e)}
-                style={{ marginRight: "20px" }}
+                // style={{ marginRight: "30px" }}
               >
                 <img
                   style={{
                     cursor: "pointer",
-                    height: "28px",
-                    width: "28px",
-                    marginLeft: "3px",
+                    height: "30px",
+                    width: "30px",
+                    // marginLeft: "3px",
 
                     className:"wedding"                    
                   }}
@@ -243,29 +242,28 @@ class App extends React.Component {
               </li>
               <li
                 onClick={(e) => this.loadPhotos("72157714641822212", "account1", e)}
-                style={{ marginRight: "20px" }}
+                // style={{ marginRight: "30px" }}
               >
                 <img className="sangeet"
                   style={{
                     cursor: "pointer",
-                    height: "28px",
-                    width: "28px",
-                    marginLeft: "5px"
+                    height: "30px",
+                    width: "30px",
                   }}
                   src={floor}
                 ></img>
-                <span class="tab-name">Sangeet</span>
+                <span class="tab-name"> Sangeet</span>
               </li>
               <li
                 onClick={(e) => this.loadPhotos("72157714641076231", "account2", e)}
-                style={{ marginRight: "20px" }}
+                // style={{ marginRight: "30px" }}
               >
                                   
                 <img
                   style={{
                     cursor: "pointer",
-                    height: "28px",
-                    width: "28px",
+                    height: "30px",
+                    width: "30px",
                   }}
                   src={bride}
                 ></img>
@@ -289,11 +287,12 @@ class App extends React.Component {
                 openExternal: true
               }
             ]}
-            bottom="Made with  ❤️ by https://github.com/ananddharne"
+                💚💛💙
+            bottom="Made with  ❤️  by https://github.com/ananddharne"
           /> */}
           <footer style={{display: 'flex', paddingTop: '120px', paddingBottom: '16px', justifyContent: 'center'}} className="footer-container">
             <span className="footer-text">
-            Made with ❤️by <a href="https://github.com/ananddharne" target="blank"> <span>Anand</span> </a>
+             {"</>"} with ❤️ by <a href="https://github.com/ananddharne" target="blank"> <span>Anand</span> </a>
             </span>
           </footer>
         </div>
