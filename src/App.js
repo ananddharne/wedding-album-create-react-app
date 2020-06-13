@@ -10,6 +10,7 @@ import floor from "./floor.svg";
 import Footer from "rc-footer";
 import "rc-footer/assets/index.css"; // import 'rc-footer/asssets/index.less';
 import $ from 'jquery';
+import './example.css'
 
 class App extends React.Component {
   constructor() {
