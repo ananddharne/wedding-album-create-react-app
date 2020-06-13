@@ -105,7 +105,6 @@ class App extends React.Component {
     }, url);
 
     jsonp(url, { name: "jsonFlickrApi" }, (err, data) => {
-      if(data.photoset){
         let photos = data.photoset.photo.map(item => {
           let aspectRatio = parseFloat(item.width_o / item.height_o);
           return {
@@ -127,7 +126,6 @@ class App extends React.Component {
         this.setState({
           photos: photos
         });
-      }
 
     });
     // let urly =
