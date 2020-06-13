@@ -278,7 +278,7 @@ class App extends React.Component {
 					))} */}
           {<ExampleWithLightbox className="album" renderPageNumbers={renderPageNumbers} photos={currentPhotos} />}
           {/* <ul id="page-numbers">{renderPageNumbers}</ul> */}
-          <Footer
+          {/* <Footer
             theme={"light"}
             columns={[
               {
@@ -288,8 +288,13 @@ class App extends React.Component {
                 openExternal: true
               }
             ]}
-            bottom="Made with ❤️by <span> Anand <span>"
-          />
+            bottom="Made with  ❤️ by https://github.com/ananddharne"
+          /> */}
+          <footer style={{display: 'flex', paddingTop: '150px', justifyContent: 'center'}} className="footer-container">
+            <span className="footer-text">
+            Made with  ❤️ by <a href="https://github.com/ananddharne" target="blank"> Anand </a>
+            </span>
+          </footer>
         </div>
       );
     } else {

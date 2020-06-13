@@ -1,3 +1,4 @@
+
 body {
 	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 	font-size: 14px;
@@ -59,9 +60,9 @@ a {
   background-color: #08c;
 } */
 
-.rc-footer-container {
+/* .rc-footer-container {
  color: #fff;
-}
+} */
 
 
 /* a:hover {
@@ -116,7 +117,8 @@ iframe{
 }
 #cover{
   background-image: url("./cover.jpg"); 
-  background-position: 40% 38%; height: 80vh;
+  background-position: 40% 30%; 
+  height: 88vh;
    /* Add the blur effect */
    /* filter: blur(3px); */
    /* -webkit-filter: blur(3px); */
@@ -155,6 +157,7 @@ iframe{
   cursor: pointer;
   margin-right: 3px;
   margin-left: 3px;
+  font-family: 'Josefin Sans', cursive;
 }
 
 ul.navbar li {
@@ -206,6 +209,23 @@ ul.navbar li.active {
   background: #06befa;
   background-image: linear-gradient(to bottom, #06befa, #3498db);
   text-decoration: none;
+}
+/* 
+.footer-container {
+  position:absolute;
+left:0;
+bottom:0;
+right:0;
+} */
+
+/* .footer-container {
+  height: calc(100% - 60px);
+} */
+
+.footer-text {
+  font-family: 'Josefin Sans', cursive;
+  font-weight: 500px;
+  font-size: 18px;
 }
 
 
