@@ -17,6 +17,7 @@ class App extends React.Component {
     super();
     this.state = { width: -1, photos: [], currentPage: 1, photosPerPage: 69 };
     this.loadPhotos = this.loadPhotos.bind(this);
+    this.myRef = React.createRef()
   }
   componentDidMount() {
     // mehendi photos
@@ -24,6 +25,10 @@ class App extends React.Component {
   }
 
   handleClick(event) {
+    // $(window).scrollTop(0, '100vh')
+    $([document.documentElement, document.body]).animate({
+      scrollTop: $("#nav").offset().top
+  }, 2000);
     let currElem =  $(".number-link-active")
     if (currElem) {
       $(currElem).attr('class', 'number-link');
@@ -178,6 +183,7 @@ class App extends React.Component {
           </div>
           <div
             id="nav"
+            // ref={this.myRef}
             style={{
               display: "flex",
               width: "100%",
