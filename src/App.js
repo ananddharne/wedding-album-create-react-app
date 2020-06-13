@@ -9,77 +9,97 @@ import heart from "./heart.svg";
 import floor from "./floor.svg";
 import Footer from "rc-footer";
 import "rc-footer/assets/index.css"; // import 'rc-footer/asssets/index.less';
-import $ from 'jquery';
-import './example.css'
+import $ from "jquery";
+import "./example.css";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = { width: -1, photos: [], currentPage: 1, photosPerPage: 69 };
     this.loadPhotos = this.loadPhotos.bind(this);
-    this.myRef = React.createRef()
+    this.myRef = React.createRef();
   }
   componentDidMount() {
     // mehendi photos
     this.loadPhotos("72157714640654906", "account1");
+    // let activeElementPage = $(".number-link-active");
+    // if(!activeElementPage) {
+    //   $(".number-link")
+    // }
+    // console.log(this.state.currentPage)
+    // if (this.state.currentPage === 1) {
+    //   const elem = $("#page-numbers li");
+    //   console.log(elem)
+    //   $(elem[0]).attr("class", "number-link-active");
+    // }
+
   }
 
   handleClick(event) {
     // $(window).scrollTop(0, '100vh')
-    $([document.documentElement, document.body]).animate({
-      scrollTop: $("#nav").offset().top
-  }, 2000);
-    let currElem =  $(".number-link-active")
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#nav").offset().top
+      },
+      2000
+    );
+    let currElem = $(".number-link-active");
     if (currElem) {
-      $(currElem).attr('class', 'number-link');
+      $(currElem).attr("class", "number-link");
     }
-    const elem = $('#page-numbers li');
-    $(elem[event.target.id - 1]).attr('class', 'number-link-active');
+    const elem = $("#page-numbers li");
+    $(elem[event.target.id - 1]).attr("class", "number-link-active");
     this.setState({
-      currentPage: event.target.id,
+      currentPage: event.target.id
     });
   }
 
   handleNavClick(event) {
-    let currElem =  $("ul.navbar li.active")
-    console.log(currElem)
+    let currElem = $("ul.navbar li.active");
+    console.log(currElem);
     for (const li of currElem) {
       li.classList.remove("active");
     }
-    console.log(event.currentTarget)
-    event.currentTarget.classList.add("active")
+    console.log(event.currentTarget);
+    event.currentTarget.classList.add("active");
   }
 
   loadPhotos(photoset_id, account, e) {
-    this.setState({currentPage: 1})
-    if(e) {
-      let currElem =  $("ul.navbar li.active")
-      console.log(currElem)
+    this.setState({ currentPage: 1 });
+    if (e) {
+      let currElem = $("ul.navbar li.active");
+      console.log(currElem);
       for (const li of currElem) {
         li.classList.remove("active");
       }
-      console.log(e.currentTarget)
-      e.currentTarget.classList.add("active")
+      console.log(e.currentTarget);
+      e.currentTarget.classList.add("active");
+    } else {
+      let mehendiElem = $("li.mehendi")
+      mehendiElem.addClass("active");
+      const elem = $("li#1");
+      console.log(elem)
+      setTimeout(function(){  $(elem).attr("class", "number-link-active"); }, 3000);
+     
     }
     // mehendi
-    if (photoset_id === '72157714640654906') {
+    if (photoset_id === "72157714640654906") {
       this.setState({ photosPerPage: 48 });
     }
     // wedding
-    if (photoset_id === '72157714642026603') {
+    if (photoset_id === "72157714642026603") {
       this.setState({ photosPerPage: 120 });
     }
     // sangeet
-    if (photoset_id === '72157714641822212') {
+    if (photoset_id === "72157714641822212") {
       this.setState({ photosPerPage: 120 });
     }
     // reception
-    if(photoset_id === '72157714641076231') {
+    if (photoset_id === "72157714641076231") {
       this.setState({ photosPerPage: 120 });
     }
-    if(photoset_id === '72157714386479743') {
+    if (photoset_id === "72157714386479743") {
       this.setState({ photosPerPage: 68 });
-
     }
     let urlParams;
     if (account === "account1") {
@@ -111,35 +131,28 @@ class App extends React.Component {
     }, url);
 
     jsonp(url, { name: "jsonFlickrApi" }, (err, data) => {
-        let photos = data.photoset.photo.map(item => {
-          let aspectRatio = parseFloat(item.width_o / item.height_o);
-          return {
-            src: item.url_l,
-            width: parseInt(item.width_o),
-            height: parseInt(item.height_o),
-            title: item.title,
-            alt: item.title,
-            key: item.id,
-            srcSet: [
-              `${item.url_m} ${item.width_m}w`,
-              `${item.url_c} ${item.width_c}w`,
-              `${item.url_l} ${item.width_l}w`,
-              `${item.url_h} ${item.width_h}w`
-            ],
-            sizes: "(min-width: 480px) 50vw, (min-width: 1024px) 33.3vw, 100vw"
-          };
-        });
-        this.setState({
-          photos: photos
-        });
-
+      let photos = data.photoset.photo.map(item => {
+        let aspectRatio = parseFloat(item.width_o / item.height_o);
+        return {
+          src: item.url_l,
+          width: parseInt(item.width_o),
+          height: parseInt(item.height_o),
+          title: item.title,
+          alt: item.title,
+          key: item.id,
+          srcSet: [
+            `${item.url_m} ${item.width_m}w`,
+            `${item.url_c} ${item.width_c}w`,
+            `${item.url_l} ${item.width_l}w`,
+            `${item.url_h} ${item.width_h}w`
+          ],
+          sizes: "(min-width: 480px) 50vw, (min-width: 1024px) 33.3vw, 100vw"
+        };
+      });
+      this.setState({
+        photos: photos
+      });
     });
-    // let urly =
-      
-    // "https://api.flickr.com/services/rest/?method=flickr.tags.getListPhoto&api_key=1c6b2276693aebd622b79c81c44b4250&photo_id=49989161861";
-    // jsonp(urly, { name: "jsonFlickrApi" }, (err, data) => {
-    //   console.log(data)
-    // })
   }
   render() {
     const { photos, currentPage, photosPerPage } = this.state;
@@ -160,7 +173,7 @@ class App extends React.Component {
           className={"number-link"}
           key={number}
           id={number}
-          onClick={(e) => this.handleClick(e)}
+          onClick={e => this.handleClick(e)}
         >
           {number}
         </li>
@@ -172,15 +185,6 @@ class App extends React.Component {
       return (
         <div className="App">
           <div id="cover"></div>
-          <div className="bg-text">
-            {/* <span> Komal  ❤️ Anand </span> */}
-              {/* <div> Komal </div>
-              <img style={{ height: "31px", width: "30px" }} src={heart}></img>
-              {/* <div class="heart heart1"></div> */}
-              {/* <div> Anand</div> */}
-            {/* </span>  */}
-            
-          </div>
           <div
             id="nav"
             // ref={this.myRef}
@@ -192,113 +196,118 @@ class App extends React.Component {
               margin: "0, 15px"
             }}
           >
-            <ul className="navbar"
-              style={{
-                // display: "flex",
-                // paddingInlineStart: "20px",
-                // justifyContent: "center",
-                // listStyle: "none",
-                // paddingTop: "20px",
-                // paddingBottom: "20px",
-              }}
+            <ul
+              className="navbar"
             >
               <li
-                onClick={(e) => this.loadPhotos("72157714640654906", "account1", e)}
-                // style={{ cursor: "pointer", marginRight: "30px" }}
+                onClick={e =>
+                  this.loadPhotos("72157714640654906", "account1", e)
+                }
+                className="mehendi"
               >
                 <img
+                alt="mehendi"
                   style={{ height: "30px", width: "30px" }}
                   src={henna}
-                  className="mehendi"
                 ></img>
                 <span class="tab-name"> Mehendi</span>
               </li>
               <li
-                onClick={(e) => this.loadPhotos("72157714386479743", "account1", e)}
-                // style={{ marginRight: "30px" }}
+                onClick={e =>
+                  this.loadPhotos("72157714386479743", "account1", e)
+                }
               >
-                <img className="sangeet"
+                <img
+                  className="mehendi"
+                  alt="mehendi"
                   style={{
                     cursor: "pointer",
                     height: "30px",
-                    width: "30px",
-                    // marginLeft: "3px"
+                    width: "30px"
                   }}
                   src={samosa}
                 ></img>
-                
+
                 <span class="tab-name">Haldi</span>
               </li>
               <li
-                onClick={(e) => this.loadPhotos("72157714642026603", "account2", e)}
-                // style={{ marginRight: "30px" }}
+                onClick={e =>
+                  this.loadPhotos("72157714642026603", "account2", e)
+                }
               >
                 <img
+                  alt="haldi"
+                  className = "haldi"
                   style={{
                     cursor: "pointer",
                     height: "30px",
                     width: "30px",
-                    // marginLeft: "3px",
 
-                    className:"wedding"                    
                   }}
                   src={wedding}
                 ></img>
                 <span class="tab-name">Wedding</span>
               </li>
               <li
-                onClick={(e) => this.loadPhotos("72157714641822212", "account1", e)}
+                onClick={e =>
+                  this.loadPhotos("72157714641822212", "account1", e)
+                }
                 // style={{ marginRight: "30px" }}
               >
-                <img className="sangeet"
+                <img
+                  alt="sangeet"
+                  className="sangeet"
                   style={{
                     cursor: "pointer",
                     height: "30px",
-                    width: "30px",
+                    width: "30px"
                   }}
                   src={floor}
                 ></img>
                 <span class="tab-name"> Sangeet</span>
               </li>
               <li
-                onClick={(e) => this.loadPhotos("72157714641076231", "account2", e)}
-                // style={{ marginRight: "30px" }}
+                onClick={e =>
+                  this.loadPhotos("72157714641076231", "account2", e)
+                }
               >
-                                  
                 <img
+                  alt="reception"
                   style={{
                     cursor: "pointer",
                     height: "30px",
-                    width: "30px",
+                    width: "30px"
                   }}
                   src={bride}
                 ></img>
                 <span class="tab-name">Reception</span>
-                
               </li>
             </ul>
           </div>
-          {/* {currentPhotos.map(photo => (
-						<CountryCard key={country.cca3} country={country} />
-					))} */}
-          {<ExampleWithLightbox className="album" renderPageNumbers={renderPageNumbers} photos={currentPhotos} />}
-          {/* <ul id="page-numbers">{renderPageNumbers}</ul> */}
-          {/* <Footer
-            theme={"light"}
-            columns={[
-              {
-                icon: <img src="" />,
-                url: "https://yuque.com",
-                description: "anand",
-                openExternal: true
-              }
-            ]}
-                💚💛💙
-            bottom="Made with  ❤️  by https://github.com/ananddharne"
-          /> */}
-          <footer style={{display: 'flex', paddingTop: '120px', paddingBottom: '16px', justifyContent: 'center'}} className="footer-container">
+
+          {
+            <ExampleWithLightbox
+              className="album"
+              renderPageNumbers={renderPageNumbers}
+              photos={currentPhotos}
+            />
+          }
+
+          <footer
+            style={{
+              display: "flex",
+              paddingTop: "120px",
+              paddingBottom: "16px",
+              justifyContent: "center"
+            }}
+            className="footer-container"
+          >
             <span className="footer-text">
-             {"Made"} with ❤️ by <a href="https://github.com/ananddharne" target="blank"> <span>Anand</span> </a>
+              {"Made"} with ❤️ by{" "}
+              <a href="https://github.com/ananddharne" target="blank">
+                {" "}
+                <span>Anand</span>{" "}
+              </a>
             </span>
           </footer>
         </div>
