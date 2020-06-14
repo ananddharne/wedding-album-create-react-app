@@ -132,7 +132,7 @@ iframe{
   text-align: center;
   color: #fff;
   position: absolute;
-  top: 80%;
+  top: 50%;
   z-index: 9;
   -ms-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -147,10 +147,33 @@ iframe{
   line-height: 1.33;
   font-weight: bold;
   font-family: 'Josefin Sans', cursive;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+
+.cover-collection-date a:hover {
+  cursor: pointer;
+  /* color: #9D9D9D; */
+}
+
+.cover-collection-date a {
+  cursor: pointer;
+  color:white;
+  visibility: hidden;
+}
+
+.cover-collection-name a {
+ cursor: pointer;
+ color: white;
+}
+
+.cover-collection-name :hover {
+  /* color: #9D9D9D; */
 }
 .cover-arrow :hover{
   /* border:  1px solid black; */
-  color:#9D9D9D;
+  /* color: #9D9D9D; */
   
     }
 .cover-arrow a {
@@ -210,9 +233,10 @@ ul.navbar {
   padding-inline-start: 20px;
 }
 
-/* .react-photo-gallery--gallery div img {
-visibility: hidden;
-} */
+.react-photo-gallery--gallery div img {
+margin-left: 10px;
+margin-right: 10px;
+}
 
 
 

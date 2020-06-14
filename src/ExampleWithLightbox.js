@@ -51,7 +51,7 @@ function ExampleWithLightbox({ photos, renderPageNumbers }) {
   return (
     <div>
       {/* <h2>Using with a Lightbox component</h2> */}
-      <Gallery photos={photos} onClick={openLightbox} />
+      <Gallery photos={photos} targetRowHeight={500} direction="row" onClick={openLightbox} />
       <ul id="page-numbers">{renderPageNumbers}</ul>
       <ModalGateway>
         {viewerIsOpen ? (

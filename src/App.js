@@ -199,8 +199,9 @@ class App extends React.Component {
         <div className="App">
           <div id="cover">
           <div class="cover-detail">
-<h1 class="cover-collection-name">Komal and Anand</h1>
-<h4 class="cover-collection-date">March 4th, 2020</h4> <div class="cover-arrow">
+<div className="cover-collection-name"> <a>Komal and Anand</a></div>
+<div className="cover-collection-date"><a>March 4th, 2020</a></div> 
+<div class="cover-arrow">
 <a onClick={() => { $([document.documentElement, document.body]).animate(
       {
         scrollTop: $("#nav").offset().top
