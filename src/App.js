@@ -197,7 +197,19 @@ class App extends React.Component {
       const width = this.state.width;
       return (
         <div className="App">
-          <div id="cover"></div>
+          <div id="cover">
+          <div class="cover-detail">
+<h1 class="cover-collection-name">Komal and Anand</h1>
+<h4 class="cover-collection-date">March 4th, 2020</h4> <div class="cover-arrow">
+<a onClick={() => { $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#nav").offset().top
+      },
+      2000
+    );}} href="#">&#8964;</a>
+</div>
+</div>
+          </div>
           <div
             id="nav"
             // ref={this.myRef}
