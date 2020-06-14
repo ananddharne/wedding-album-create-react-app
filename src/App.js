@@ -22,16 +22,13 @@ class App extends React.Component {
   componentDidMount() {
     // mehendi photos
     this.loadPhotos("72157714640654906", "account1");
-    // let activeElementPage = $(".number-link-active");
-    // if(!activeElementPage) {
-    //   $(".number-link")
-    // }
-    // console.log(this.state.currentPage)
-    // if (this.state.currentPage === 1) {
-    //   const elem = $("#page-numbers li");
-    //   console.log(elem)
-    //   $(elem[0]).attr("class", "number-link-active");
-    // }
+   
+    setTimeout(function(){ 
+      const elem = $("li.number-link")
+      $(elem[0]).attr("class", "number-link-active")
+    }, 1000);
+
+    // let x = elem[0]
 
   }
 
@@ -54,33 +51,50 @@ class App extends React.Component {
     });
   }
 
+  // not used
   handleNavClick(event) {
     let currElem = $("ul.navbar li.active");
-    console.log(currElem);
     for (const li of currElem) {
       li.classList.remove("active");
     }
-    console.log(event.currentTarget);
     event.currentTarget.classList.add("active");
+
+    setTimeout(function(){ 
+    const elem = $("#page-numbers li");
+      $(elem[0]).attr("class", "number-link-active")
+    }, 1000);
   }
 
   loadPhotos(photoset_id, account, e) {
     this.setState({ currentPage: 1 });
     if (e) {
       let currElem = $("ul.navbar li.active");
-      console.log(currElem);
       for (const li of currElem) {
         li.classList.remove("active");
       }
-      console.log(e.currentTarget);
       e.currentTarget.classList.add("active");
+      // setTimeout(function(currentPage) { 
+        const elem = $("#page-numbers li.number-link-active");
+        for (const li of elem) {
+          li.classList.remove("number-link-active");
+        }
+        const elemNotActive = $("#page-numbers li");
+
+          $(elemNotActive[0]).attr("class", "number-link-active")
+          // let currentPageElement = $(elem[this.state.currentPage - 1])
+          // console.log(this.state.currentPage)
+          // console.log(currentPageElement)
+        // }, 1000);
     } else {
       let mehendiElem = $("li.mehendi")
       mehendiElem.addClass("active");
-      const elem = $("li#1");
-      console.log(elem)
-      setTimeout(function(){  $(elem).attr("class", "number-link-active"); }, 3000);
      
+      // const elem = $("li#1");
+      // setTimeout(function(){  $(elem).attr("class", "number-link-active"); }, 3000);
+      // setTimeout(function(){ 
+      //   const elem = $("#page-numbers li");
+      //     $(elem[0]).attr("class", "number-link-active")
+      //   }, 1000);
     }
     // mehendi
     if (photoset_id === "72157714640654906") {
@@ -156,7 +170,6 @@ class App extends React.Component {
   }
   render() {
     const { photos, currentPage, photosPerPage } = this.state;
-    console.log(this.state.currentPage);
 
     // Logic for displaying current photos
     const indexOfLastTodo = currentPage * photosPerPage;
@@ -210,7 +223,7 @@ class App extends React.Component {
                   style={{ height: "30px", width: "30px" }}
                   src={henna}
                 ></img>
-                <span class="tab-name"> Mehendi</span>
+                <span className="tab-name"> Mehendi</span>
               </li>
               <li
                 onClick={e =>
@@ -228,7 +241,7 @@ class App extends React.Component {
                   src={samosa}
                 ></img>
 
-                <span class="tab-name">Haldi</span>
+                <span className="tab-name">Haldi</span>
               </li>
               <li
                 onClick={e =>
@@ -240,13 +253,13 @@ class App extends React.Component {
                   className = "haldi"
                   style={{
                     cursor: "pointer",
-                    height: "30px",
-                    width: "30px",
+                    height: "28px",
+                    width: "28px",
 
                   }}
                   src={wedding}
                 ></img>
-                <span class="tab-name">Wedding</span>
+                <span className="tab-name">Wedding</span>
               </li>
               <li
                 onClick={e =>
@@ -259,12 +272,12 @@ class App extends React.Component {
                   className="sangeet"
                   style={{
                     cursor: "pointer",
-                    height: "30px",
-                    width: "30px"
+                    height: "28px",
+                    width: "28px"
                   }}
                   src={floor}
                 ></img>
-                <span class="tab-name"> Sangeet</span>
+                <span className="tab-name"> Sangeet</span>
               </li>
               <li
                 onClick={e =>
@@ -280,7 +293,7 @@ class App extends React.Component {
                   }}
                   src={bride}
                 ></img>
-                <span class="tab-name">Reception</span>
+                <span className="tab-name">Reception</span>
               </li>
             </ul>
           </div>

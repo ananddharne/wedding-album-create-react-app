@@ -303,6 +303,12 @@ ul.navbar li.active span {
 
  } 
 
+ .tab-name {
+  /* margin-right: 0px;
+  margin-left: 0px; */
+  margin: 0px;
+}
+
 
 
  #cover {
