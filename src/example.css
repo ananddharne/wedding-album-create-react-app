@@ -132,7 +132,7 @@ iframe{
   text-align: center;
   color: #fff;
   position: absolute;
-  top: 70%;
+  top: 80%;
   z-index: 9;
   -ms-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -207,6 +207,7 @@ display: inline-block;
 }
 ul.navbar {
   display: flex;
+  padding-inline-start: 20px;
 }
 
 /* .react-photo-gallery--gallery div img {
