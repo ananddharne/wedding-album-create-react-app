@@ -48,6 +48,8 @@ a {
   font-size: 1rem;
   cursor: pointer;
   color: #9D9D9D;
+  font-family: 'Josefin Sans', cursive;
+  
   /* text-decoration: underline; */
 }
 
@@ -135,6 +137,7 @@ iframe{
   -ms-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
+  font-family: 'Josefin Sans', cursive;
   transform: translateY(-50%);
 }
 .cover-collection-name {
@@ -143,6 +146,7 @@ iframe{
   letter-spacing: .25rem;
   line-height: 1.33;
   font-weight: bold;
+  font-family: 'Josefin Sans', cursive;
 }
 .cover-arrow :hover{
   /* border:  1px solid black; */
