@@ -381,7 +381,7 @@ ul.navbar li.active span {
  }  */
 
  ul.navbar {
-   padding-inline-start: 0px;
+   padding-inline-start: 20px;
  }
 
  .tab-name {
