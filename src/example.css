@@ -392,6 +392,11 @@ ul.navbar li.active span {
   text-transform: lowercase;
  }
 
+ .react-photo-gallery--gallery{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 
  #cover {
    height: 812px;
