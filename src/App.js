@@ -231,19 +231,19 @@ class App extends React.Component {
                 }
                 className="mehendi"
               >
-                <img
+                {/* <img
                 alt="mehendi"
                   style={{ height: "30px", width: "30px" }}
                   src={henna}
-                ></img>
-                <span className="tab-name"> Mehendi</span>
+                ></img> */}
+                <span className="tab-name"> MEHENDI</span>
               </li>
               <li
                 onClick={e =>
                   this.loadPhotos("72157714386479743", "account1", e)
                 }
               >
-                <img
+                {/* <img
                   className="mehendi"
                   alt="mehendi"
                   style={{
@@ -252,16 +252,16 @@ class App extends React.Component {
                     width: "30px"
                   }}
                   src={samosa}
-                ></img>
+                ></img> */}
 
-                <span className="tab-name">Haldi</span>
+                <span className="tab-name">HALDI</span>
               </li>
               <li
                 onClick={e =>
                   this.loadPhotos("72157714642026603", "account2", e)
                 }
               >
-                <img
+                {/* <img
                   alt="haldi"
                   className = "haldi"
                   style={{
@@ -271,8 +271,8 @@ class App extends React.Component {
 
                   }}
                   src={wedding}
-                ></img>
-                <span className="tab-name">Wedding</span>
+                ></img> */}
+                <span className="tab-name">WEDDING</span>
               </li>
               <li
                 onClick={e =>
@@ -280,7 +280,7 @@ class App extends React.Component {
                 }
                 // style={{ marginRight: "30px" }}
               >
-                <img
+                {/* <img
                   alt="sangeet"
                   className="sangeet"
                   style={{
@@ -289,15 +289,15 @@ class App extends React.Component {
                     width: "28px"
                   }}
                   src={floor}
-                ></img>
-                <span className="tab-name"> Sangeet</span>
+                ></img> */}
+                <span className="tab-name">SANGEET</span>
               </li>
               <li
                 onClick={e =>
                   this.loadPhotos("72157714641076231", "account2", e)
                 }
               >
-                <img
+                {/* <img
                   alt="reception"
                   style={{
                     cursor: "pointer",
@@ -305,8 +305,8 @@ class App extends React.Component {
                     width: "30px"
                   }}
                   src={bride}
-                ></img>
-                <span className="tab-name">Reception</span>
+                ></img> */}
+                <span className="tab-name">RECEPTION</span>
               </li>
             </ul>
           </div>

@@ -80,7 +80,6 @@ function ExampleWithLightbox({ photos, renderPageNumbers }) {
                     display: 'flex ',
                     height: 'calc(100vh - 54px)',
                     justifyContent: 'center',
-
                     // [largeDevice]: {
                     //   padding: 20,
                     // },
