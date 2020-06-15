@@ -306,9 +306,12 @@ ul.navbar li.active {
 
 
 .footer-text {
-  font-family: 'Sans Serif';
-  font-weight: bold;
+  /* font-family: 'Sans Serif'; */
+  /* font-weight: bold; */
   font-size: 18px;
+  line-height: 1.4;
+  word-spacing: 1px;
+  font-family: 'Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;'
 }
 
 
@@ -366,17 +369,25 @@ ul.navbar li.active {
 @media only screen and (max-width: 450px) {
 
 ul.navbar li.active span {
-  color: black;
+  color: orange;
   /* color: black; */
   box-shadow: 0 0px 0;
 
  } 
 
- ul.navbar li img {
+ /* ul.navbar li img {
  margin-left: 6px;
 
- } 
+ }  */
 
+ ul.navbar {
+   padding-inline-start: 0px;
+ }
+
+ .tab-name {
+  /* word-spacing: 0px; */
+  text-transform: lowercase;
+ }
 
 
  #cover {
