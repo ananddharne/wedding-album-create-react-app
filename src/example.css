@@ -116,7 +116,9 @@ iframe{
 }
 .react-photo-gallery--gallery{
   /* margin-bottom: 15px; */
-  margin: 0 20px;
+  /* margin: 0 40px, 0, 40px; */
+  margin-left: 40px;
+  margin-right: 40px;
 }
 #cover{
   background-image: url("./cover.jpg"); 
@@ -184,6 +186,7 @@ font-size: 5em;
 /* border: 1px solid #fff; */
 text-decoration: none;
 display: inline-block;
+visibility: hidden;
 }
 
 .bg-text {
@@ -237,7 +240,7 @@ display: inline-block;
 }
 ul.navbar {
   display: flex;
-  /* padding-inline-start: 20px; */
+  padding-inline-start: 20px;
 
 }
 
