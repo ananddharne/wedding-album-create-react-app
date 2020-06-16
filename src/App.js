@@ -11,6 +11,18 @@ import Footer from "rc-footer";
 import "rc-footer/assets/index.css"; // import 'rc-footer/asssets/index.less';
 import $ from "jquery";
 import "./example.css";
+// import "./slick.css"
+import "./css/slick-theme.css"
+// import "./style.css"
+import "./css/style.css"
+import "./css/animate.css"
+import "./css/flaticon.css"
+import "./css/font-awesome.min.css"
+import "./css/bootstrap.min.css"
+import "./css/magnific-popup.css"
+import "./css/owl.carousel.css"
+import WOW from 'wowjs';
+
 
 class App extends React.Component {
   constructor() {
@@ -28,9 +40,33 @@ class App extends React.Component {
       $(elem[0]).attr("class", "number-link-active")
     }, 1000);
 
+    this.preloader()
+
     // let x = elem[0]
 
   }
+
+  popupSaveTheDateCircle() {
+    var saveTheDateCircle = $(".save-the-date");
+    saveTheDateCircle.addClass("popup-save-the-date");
+  }
+
+   preloader() {
+    if($('.preloader').length) {
+        $('.preloader').delay(100).fadeOut(500, function() {
+        
+            //active wow
+            var wow = new WOW.WOW();
+            wow.init();
+
+            if($(".save-the-date").length) {
+              var saveTheDateCircle = $(".save-the-date");
+              saveTheDateCircle.addClass("popup-save-the-date");
+            }
+
+        });
+    }
+}
 
   handleClick(event) {
     // $(window).scrollTop(0, '100vh')
@@ -197,20 +233,69 @@ class App extends React.Component {
       const width = this.state.width;
       return (
         <div className="App">
-          <div id="cover">
-          <div class="cover-detail">
-<div className="cover-collection-name"> <a>Komal and Anand</a></div>
-<div className="cover-collection-date"><a>March 4th, 2020</a></div> 
-<div class="cover-arrow">
-<a onClick={() => { $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $("#nav").offset().top
-      },
-      2000
-    );}} href="#">&#8964;</a>
-</div>
-</div>
+
+<div class="preloader">
+            <div class="inner">
+                <span class="icon"><i class="fi flaticon-two"></i></span>
+            </div>
+        </div>
+
+<section class="hero">
+            <div class="hero-slider hero-slider-s1">
+                <div class="slide-item">
+                    <img src="./images/ours/IMG_4334.jpeg" alt class="slider-bg"/>
+                </div>
+
+                <div class="slide-item">
+                    <img src="images/ours/IMG_4321.jpg" alt class="slider-bg"/>
+                </div>
+            </div>
+            <div class="wedding-announcement">
+                <div class="couple-name-merried-text">
+                    <h2 className="wow slideInUp" data-wow-duration="1s">Komal &amp; Anand</h2>
+                    <div className="married-text wow fadeIn" data-wow-delay="1s">
+                        <h4 class="" >
+                        <span className=" wow fadeInUp" style={{textAlign: "center"}} data-wow-delay="1.05s">W</span>
+                        <span className=" wow fadeInUp" data-wow-delay="1.10s">e</span>
+                        <span>&nbsp;</span>
+                        <span className=" wow fadeInUp" data-wow-delay="1.30s">g</span>
+                        <span className=" wow fadeInUp" data-wow-delay="1.35s">o</span>
+                        <span className=" wow fadeInUp" data-wow-delay="1.40s">t</span>
+                        <span>&nbsp;</span>
+                        <span className=" wow fadeInUp" data-wow-delay="1.65s">m</span>
+                        <span className=" wow fadeInUp" data-wow-delay="1.70s">a</span>
+                        <span className=" wow fadeInUp" data-wow-delay="1.75s">r</span>
+                        <span className=" wow fadeInUp" data-wow-delay="1.80s">r</span>
+                        <span className=" wow fadeInUp" data-wow-delay="1.85s">i</span>
+                        <span className=" wow fadeInUp" data-wow-delay="1.90s">e</span>
+                        <span className=" wow fadeInUp" data-wow-delay="1.95s">d</span>
+                        <span className=" wow fadeInUp" data-wow-delay="1.95s">!</span>
+                        </h4>
+                    </div>
+                </div>
+
+                <div class="save-the-date">
+                    <h4>Remember the date!</h4>
+                    <p></p>
+                    <p></p>
+                    <span className="date">4th March 2020</span>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+          {/* <div id="cover">
+         
           </div>
+          <div class="save-the-date">
+                    <h4>Save the date</h4>
+                    <span class="date">25 DEC 2017</span>
+          </div> */}
+         
           <div
             id="nav"
             // ref={this.myRef}
@@ -283,6 +368,7 @@ class App extends React.Component {
                 {/* <img
                   alt="sangeet"
                   className="sangeet"
+
                   style={{
                     cursor: "pointer",
                     height: "28px",
