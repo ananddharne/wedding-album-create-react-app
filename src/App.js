@@ -11,9 +11,7 @@ import Footer from "rc-footer";
 import "rc-footer/assets/index.css"; // import 'rc-footer/asssets/index.less';
 import $ from "jquery";
 import "./example.css";
-// import "./slick.css"
 import "./css/slick-theme.css"
-// import "./style.css"
 import "./css/style.css"
 import "./css/animate.css"
 import "./css/flaticon.css"
