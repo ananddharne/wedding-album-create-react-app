@@ -273,7 +273,7 @@ class App extends React.Component {
                 </div>
 
                 <div class="save-the-date">
-                    <h4>Remember the date!</h4>
+                    <h4>Date!</h4>
                     <p></p>
                     <p></p>
                     <span className="date">4th March 2020</span>
