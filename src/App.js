@@ -378,7 +378,9 @@ scrollToStory() {
                     <img src="images/ours/IMG_4321.jpg" alt class="slider-bg"/>
                 </div>
             </div>
+
             <div class="wedding-announcement">
+
                 <div class="couple-name-merried-text">
                     <h2 className="wow slideInUp" data-wow-duration="1s">Komal &amp; Anand</h2>
                     <div className="married-text wow fadeIn" data-wow-delay="1s">
@@ -400,6 +402,8 @@ scrollToStory() {
                         <span className=" wow fadeInUp" data-wow-delay="1.95s">!</span>
                         </h4>
                     </div>
+                  
+
                 </div>
 
                 <div class="save-the-date">
@@ -705,9 +709,10 @@ scrollToStory() {
                 <div class="row">
                     <div class="col col-xs-12">
                         <h2>Forever and Always Our Love</h2>
-                        <a href="https://github.com/ananddharne" target="blank">
+                        {/* <p style={{color: "#a9a9a9"}}>Made with ❤️ by</p> */}
+                        <a style={{color: "#a9a9a9", fontSize: "20px"}} href="https://github.com/ananddharne" target="blank">
                 {" "}
-                <span>Anand (The groom)</span>{" "}
+                <span>Created by Anand</span>{" "}
               </a>
                     </div>
                 </div> 
