@@ -20,6 +20,8 @@ import "./css/bootstrap.min.css"
 import "./css/magnific-popup.css"
 import "./css/owl.carousel.css"
 import WOW from 'wowjs';
+import StickyHeader from 'react-sticky-header';
+
 
 
 class App extends React.Component {
@@ -39,10 +41,126 @@ class App extends React.Component {
     }, 1000);
 
     this.preloader()
-
+    this.toggleMobileNavigation()
+    this.smallNavFunctionality()
     // let x = elem[0]
 
+    window.addEventListener("scroll", function() {
+//       function  bgParallax() {
+//         if ($(".parallax").length) {
+//             $(".parallax").each(function() {
+//                 var height = $(this).position().top;
+//                 var resize     = height - $(window).scrollTop();
+//                 var parallaxSpeed = $(this).data("speed");
+//                 var doParallax = -(resize / parallaxSpeed);
+//                 var positionValue   = doParallax + "px";
+//                 var img = $(this).data("bg-image");
+    
+//                 $(this).css({
+//                     backgroundImage: "url(" + img + ")",
+//                     backgroundPosition: "50%" + positionValue,
+//                     backgroundSize: "cover"
+//                 });
+    
+//                 if ( window.innerWidth < 768) {
+//                     $(this).css({
+//                         backgroundPosition: "center center"
+//                     });
+//                 }
+//             });
+//         }
+//     }
+//       console.log('HA')
+//       bgParallax();
+
+     function activeMenuItem($links) {
+      var top = $(window).scrollTop(),
+          windowHeight = $(window).height(),
+          documentHeight = $(document).height(),
+          cur_pos = top + 2,
+          sections = $("section"),
+          nav = $links,
+          nav_height = nav.outerHeight();
+    
+    
+      sections.each(function() {
+          var top = $(this).offset().top - nav_height,
+              bottom = top + $(this).outerHeight();
+    
+          if (cur_pos >= top && cur_pos <= bottom) {
+              nav.find("> ul > li > a").parent().removeClass("current-menu-item");
+              nav.find("a[href='#" + $(this).attr('id') + "']").parent().addClass("current-menu-item");
+          } else if (cur_pos === 2) {
+              nav.find("> ul > li > a").parent().removeClass("current-menu-item");
+          }
+    
+      });
+    }
+    
+    activeMenuItem($(".navigation-holder"));
+
+
+  });
+
   }
+
+
+
+
+
+
+
+toggleMobileNavigation() {
+    var navbar = $(".navigation-holder");
+    var openBtn = $(".navbar-header .open-btn");
+    var closeBtn = $(".navigation-holder .close-navbar");
+    var navLinks = $("#navbar > ul > li > a[href^='#']");
+
+    openBtn.on("click", function() {
+        if (!navbar.hasClass("slideInn")) {
+            navbar.addClass("slideInn");
+        }
+        return false;
+    })
+
+    closeBtn.on("click", function() {
+        if (navbar.hasClass("slideInn")) {
+            navbar.removeClass("slideInn");
+        }
+        return false;
+    })
+
+    navLinks.on("click", function() {
+        if (navbar.hasClass("slideInn")) {
+            navbar.removeClass("slideInn");
+        }
+        return false;
+    })
+}
+
+smallNavFunctionality() {
+  var windowWidth = window.innerWidth;
+  var mainNav = $(".navigation-holder");
+  var smallNav = $(".navigation-holder > .small-nav");
+  var subMenu = smallNav.find(".sub-menu");
+  var megamenu = smallNav.find(".mega-menu");
+  var menuItemWidthSubMenu = smallNav.find(".menu-item-has-children > a");
+
+  if (windowWidth <= 991) {
+      subMenu.hide();
+      megamenu.hide();
+      menuItemWidthSubMenu.on("click", function(e) {
+          var $this = $(this);
+          $this.siblings().slideToggle();
+           e.preventDefault();
+          e.stopImmediatePropagation();
+      })
+  } else if (windowWidth > 991) {
+      mainNav.find(".sub-menu").show();
+      mainNav.find(".mega-menu").show();
+  }
+}
+
 
   popupSaveTheDateCircle() {
     var saveTheDateCircle = $(".save-the-date");
@@ -66,14 +184,36 @@ class App extends React.Component {
     }
 }
 
+scrollToGallery() {
+  $([document.documentElement, document.body]).animate(
+    {
+      scrollTop: $("#our-gallery").offset().top
+    },
+    2000
+  );
+}
+
+scrollToCouple() {
+  $([document.documentElement, document.body]).animate(
+    {
+      scrollTop: $("#couple").offset().top
+    },
+    2000
+  );
+}
+
+scrollToStory() {
+  $([document.documentElement, document.body]).animate(
+    {
+      scrollTop: $("#story").offset().top
+    },
+    2000
+  );
+}
+
   handleClick(event) {
     // $(window).scrollTop(0, '100vh')
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $("#nav").offset().top
-      },
-      2000
-    );
+    this.scrollToGallery()
     let currElem = $(".number-link-active");
     if (currElem) {
       $(currElem).attr("class", "number-link");
@@ -115,20 +255,10 @@ class App extends React.Component {
         const elemNotActive = $("#page-numbers li");
 
           $(elemNotActive[0]).attr("class", "number-link-active")
-          // let currentPageElement = $(elem[this.state.currentPage - 1])
-          // console.log(this.state.currentPage)
-          // console.log(currentPageElement)
-        // }, 1000);
+   
     } else {
       let mehendiElem = $("li.mehendi")
       mehendiElem.addClass("active");
-     
-      // const elem = $("li#1");
-      // setTimeout(function(){  $(elem).attr("class", "number-link-active"); }, 3000);
-      // setTimeout(function(){ 
-      //   const elem = $("#page-numbers li");
-      //     $(elem[0]).attr("class", "number-link-active")
-      //   }, 1000);
     }
     // mehendi
     if (photoset_id === "72157714640654906") {
@@ -230,7 +360,7 @@ class App extends React.Component {
     if (this.state.photos) {
       const width = this.state.width;
       return (
-        <div className="App">
+        <div id="home" className="App">
 
 <div class="preloader">
             <div class="inner">
@@ -283,18 +413,178 @@ class App extends React.Component {
 
 
 
+        <header id="header" class="site-header header-style-1">
+            <nav class="navigation navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="open-btn">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="couple-logo">
+                            <h1><a href="#home">K & A</a></h1>
+                        </div>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse navbar-right navigation-holder">
+                        <button class="close-navbar"><i class="fa fa-close"></i></button>
+                        <ul class="nav navbar-nav">
+                            <li style={{cursor: "pointer"}} onClick={() => this.scrollToCouple()}><a>Couple</a></li>
+                            <li style={{cursor: "pointer"}} onClick={() => this.scrollToStory()}><a>Story</a></li>
+                            <li style={{cursor: "pointer"}} onClick={() => this.scrollToGallery()}><a>Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
+        {/* couple */}
+        <section class="wedding-couple-section section-padding" id="couple">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <div class="gb groom">
+                            <div class="img-holder wow fadeInLeftSlow">
+                                <img src="images/ours/IMG_4340.jpg" alt/>
+                            </div>
+                            <div class="details">
+                                <div class="details-inner">
+                                    <h3>The groom</h3>
+                                    <p>Hi I am Anand , dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                                    <span class="signature">Anand</span>
+                                    <ul class="social-links">
+                                        <li><a href="https://github.com/ananddharne" target="blank"><i class="fa fa-github"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gb bride">
+                            <div class="details">
+                                <div class="details-inner">
+                                    <h3>The Bride</h3>
+                                    <p>Hi I am Komal , dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                                    <span class="signature">Komal</span>
+                                    <ul class="social-links">
+                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="img-holder wow fadeInRightSlow">
+                                <img src="images/ours/IMG_4340.jpg" alt/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </section>
 
+        {/* our story */}
+        <section class="story-section section-padding" id="story">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <div class="section-title">
+                            <div class="vertical-line"><span><i class="fi flaticon-two"></i></span></div>
+                            <h2>Our love story</h2>
+                        </div>
+                    </div>
+                </div>
 
-          {/* <div id="cover">
-         
-          </div>
-          <div class="save-the-date">
-                    <h4>Save the date</h4>
-                    <span class="date">25 DEC 2017</span>
-          </div> */}
-         
-          <div
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <div class="story-timeline">
+                            <div class="row">
+                                <div class="col col-md-6">
+                                    <div class="story-text right-align-text">
+                                        <h3>First meet</h3>
+                                        <span class="date">Jan 12 2017</span>
+                                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, </p>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6">
+                                    <div class="img-holder">
+                                        <img src="images/story/img-1.jpg" alt class="img img-responsive"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-md-6">
+                                    <div class="img-holder right-align-text story-slider">
+                                        <img src="images/story/img-2.jpg" alt class="img img-responsive"/>
+                                        <img src="images/story/img-3.jpg" alt class="img img-responsive"/>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 text-holder">
+                                    <span class="heart">
+                                        <i class="fa fa-heart"></i>
+                                    </span>
+                                    <div class="story-text">
+                                        <h3>First date</h3>
+                                        <span class="date">Feb 14 2017</span>
+                                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-md-6 text-holder right-heart">
+                                    <span class="heart">
+                                        <i class="fa fa-heart"></i>
+                                    </span>
+                                    <div class="story-text right-align-text">
+                                        <h3>Proposal</h3>
+                                        <span class="date">Apr 14 2017</span>
+                                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, </p>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6">
+                                    <div class="img-holder right-align-text story-slider">
+                                        <img src="images/story/img-7.jpg" alt class="img img-responsive"/>
+                                        <img src="images/story/img-5.jpg" alt class="img img-responsive"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-md-6">
+                                    <div class="img-holder video-holder">
+                                        <img src="images/story/img-8.jpg" alt class="img img-responsive"/>
+                                        <a href="https://www.youtube.com/embed/XSGBVzeBUbk?autoplay=1" data-type="iframe" class="video-play-btn">
+                                            <i class="fa fa-play"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 text-holder">
+                                    <span class="heart">
+                                        <i class="fa fa-heart"></i>
+                                    </span>
+                                    <div class="story-text">
+                                        <h3>Enagagement</h3>
+                                        <span class="date">Jul 14 2017</span>
+                                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </section>
+
+        <section class="gallery-section section-padding" id="gallery">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <div id="our-gallery" class="section-title">
+                            <div class="vertical-line"><span><i class="fi flaticon-two"></i></span></div>
+                            <h2>Our gallery</h2>
+                        </div>
+                    </div>
+                </div>
+                <div
             id="nav"
             // ref={this.myRef}
             style={{
@@ -305,94 +595,96 @@ class App extends React.Component {
               margin: "0, 15px"
             }}
           >
-            <ul
-              className="navbar"
-            >
-              <li
-                onClick={e =>
+
+<nav>  
+  <ul style={{display: "flex"}} class="container-nav-gallery">  
+    <li style={{marginLeft: "10px", marginRight: "20px"}}>
+                <a onClick={e =>
                   this.loadPhotos("72157714640654906", "account1", e)
-                }
-                className="mehendi"
-              >
-                {/* <img
-                alt="mehendi"
-                  style={{ height: "30px", width: "30px" }}
-                  src={henna}
-                ></img> */}
-                <span className="tab-name"> MEHENDI</span>
+                } className="tab-name"> MEHENDI</a>
               </li>
-              <li
-                onClick={e =>
+              <li style={{marginRight: "20px"}}>
+                <a onClick={e =>
                   this.loadPhotos("72157714386479743", "account1", e)
-                }
-              >
-                {/* <img
-                  className="mehendi"
-                  alt="mehendi"
-                  style={{
-                    cursor: "pointer",
-                    height: "30px",
-                    width: "30px"
-                  }}
-                  src={samosa}
-                ></img> */}
-
-                <span className="tab-name">HALDI</span>
+                } className="tab-name"> HALDI</a>
               </li>
-              <li
-                onClick={e =>
+    <li style={{marginRight: "20px"}}>
+              <a onClick={e =>
                   this.loadPhotos("72157714642026603", "account2", e)
-                }
-              >
-                {/* <img
-                  alt="haldi"
-                  className = "haldi"
-                  style={{
-                    cursor: "pointer",
-                    height: "28px",
-                    width: "28px",
-
-                  }}
-                  src={wedding}
-                ></img> */}
-                <span className="tab-name">WEDDING</span>
+                } className="tab-name">WEDDING</a>
               </li>
-              <li
-                onClick={e =>
+
+              <li style={{marginRight: "20px"}}
+              >
+               
+                <a onClick={e =>
                   this.loadPhotos("72157714641822212", "account1", e)
-                }
-                // style={{ marginRight: "30px" }}
-              >
-                {/* <img
-                  alt="sangeet"
-                  className="sangeet"
-
-                  style={{
-                    cursor: "pointer",
-                    height: "28px",
-                    width: "28px"
-                  }}
-                  src={floor}
-                ></img> */}
-                <span className="tab-name">SANGEET</span>
+                } className="tab-name">SANGEET</a>
               </li>
+
+              <li style={{marginRight: "20px"}}
+               
+               >
+               
+                 <a  onClick={e =>
+                   this.loadPhotos("72157714641076231", "account2", e)
+                 } className="tab-name">RECEPTION</a>
+               </li>
+
+    <li class="search">  
+    </li>  
+  </ul>  
+</nav>
+      {/* <header id="header" class="site-header header-style-1" style={{display: "flex", justifyContent: "center"}}>
+            <nav class="navigation navbar navbar-default">
+                <div class="container1">
+                    <div class="navbar-header1">
+                    </div>
+                    <div id="navbar1" style={{display: "flex", justifyContent: "center", marginRight: "200px"}} class="navbar-collapse collapse navbar-right navigation-holder">
+                        <ul
+              className="nav navbar-nav1"
+            >
+              <li>
+                <a onClick={e =>
+                  this.loadPhotos("72157714640654906", "account1", e)
+                } className="tab-name"> MEHENDI</a>
+              </li>
+
+              <li>
+                <a onClick={e =>
+                  this.loadPhotos("72157714386479743", "account1", e)
+                } className="tab-name"> HALDI</a>
+              </li>
+            
+              <li>
+              
+                <a onClick={e =>
+                  this.loadPhotos("72157714642026603", "account2", e)
+                } className="tab-name">WEDDING</a>
+              </li>
+
               <li
-                onClick={e =>
-                  this.loadPhotos("72157714641076231", "account2", e)
-                }
               >
-                {/* <img
-                  alt="reception"
-                  style={{
-                    cursor: "pointer",
-                    height: "30px",
-                    width: "30px"
-                  }}
-                  src={bride}
-                ></img> */}
-                <span className="tab-name">RECEPTION</span>
+               
+                <a onClick={e =>
+                  this.loadPhotos("72157714641822212", "account1", e)
+                } className="tab-name">SANGEET</a>
+              </li>
+
+              <li
+               
+              >
+              
+                <a  onClick={e =>
+                  this.loadPhotos("72157714641076231", "account2", e)
+                } className="tab-name">RECEPTION</a>
               </li>
             </ul>
+                    </div>
+                </div>
+            </nav>
+        </header> */}
+            
           </div>
 
           {
@@ -402,24 +694,25 @@ class App extends React.Component {
               photos={currentPhotos}
             />
           }
+                </div>
+          </section>
 
-          <footer
-            style={{
-              display: "flex",
-              paddingTop: "120px",
-              paddingBottom: "16px",
-              justifyContent: "center"
-            }}
-            className="footer-container"
-          >
-            <span className="footer-text">
-              {"Made"} with ❤️ by{" "}
-              <a href="https://github.com/ananddharne" target="blank">
+          <footer class="site-footer">
+            <div class="back-to-top">
+                <a href="#" class="back-to-top-btn"><span><i class="fi flaticon-cupid"></i></span></a>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <h2>Forever and Always Our Love</h2>
+                        <a href="https://github.com/ananddharne" target="blank">
                 {" "}
-                <span>Anand</span>{" "}
+                <span>Anand (The groom)</span>{" "}
               </a>
-            </span>
-          </footer>
+                    </div>
+                </div> 
+            </div>
+        </footer>
         </div>
       );
     } else {

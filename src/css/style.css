@@ -34,261 +34,487 @@ URL:            http://themeforest.net/user/themexriver
 #0.1    Theme Reset Style
 --------------------------------------------------------------*/
 
+body {
+  font-family: "Dosis", sans-serif;
+  background-color: #fff;
+  font-size: 18px;
+  /* font-size: 1rem; */
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 
 @media (max-width: 1199px) {
-  .blog-sidebar {
-    padding: 0 0 0 35px;
+  body {
+    font-size: 17px;
   }
 }
 
 @media (max-width: 991px) {
-  .blog-sidebar {
-    max-width: 450px;
-    padding: 0 15px;
-    margin-top: 80px;
+  body {
+    font-size: 16px;
+  }
+}
+
+p {
+  color: #767878;
+  line-height: 1.8em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #6e6e6e;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+.wow {
+  visibility: hidden;
+}
+
+.fi:before {
+  margin: 0;
+}
+
+.section-padding {
+  padding: 120px 0;
+}
+
+@media (max-width: 1199px) {
+  .section-padding {
+    padding: 100px 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .section-padding {
+    padding: 80px 0;
+  }
+}
+
+
+/*** scrollbar style for chrome ***/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #879baf;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.section-title,
+.section-title-white {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .section-title,
+  .section-title-white {
+    margin-bottom: 50px;
+  }
+}
+
+.section-title .vertical-line,
+.section-title-white .vertical-line {
+  width: 18px;
+  height: 42px;
+  top: 0;
+}
+
+@media (max-width: 991px) {
+  .section-title .vertical-line,
+  .section-title-white .vertical-line {
+    height: 35px;
+  }
+}
+
+.section-title .vertical-line,
+.section-title-white .vertical-line,
+.section-title .vertical-line span,
+.section-title-white .vertical-line span {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.section-title .vertical-line span,
+.section-title-white .vertical-line span {
+  background: rgba(135, 155, 175, 0.2);
+  width: 2px;
+  height: 42px;
+  top: 17px;
+}
+
+@media (max-width: 991px) {
+  .section-title .vertical-line span,
+  .section-title-white .vertical-line span {
+    height: 35px;
   }
 }
 
 @media (max-width: 767px) {
-  .blog-sidebar {
-    margin-top: 70px;
+  .section-title .vertical-line span,
+  .section-title-white .vertical-line span {
+    height: 30px;
+    top: 15px;
   }
 }
 
-.blog-sidebar .widget {
-  margin-bottom: 50px;
-}
-
-.blog-sidebar .widget:last-child {
-  margin-bottom: 0;
-}
-
-.blog-sidebar .widget h3 {
-  font-size: 18px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #3e3e3e;
-  line-height: 0.86em;
-  text-transform: uppercase;
-  margin: 0 0 1.42em;
-}
-
-.blog-sidebar .widget input {
-  border: 1px solid #dcdddd;
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  padding-right: 50px;
-}
-
-.blog-sidebar .search-widget form {
-  position: relative;
-}
-
-.blog-sidebar .search-widget button {
-  background-color: transparent;
+.section-title .vertical-line span i,
+.section-title-white .vertical-line span i {
   position: absolute;
-  right: 1px;
-  top: 1px;
-  border: 0;
-  border-radius: 0;
+  left: -25px;
+  top: -63px;
 }
 
-.blog-sidebar .search-widget button:hover,
-.blog-sidebar .blog-sidebar .search-widget button:focus {
-  background-color: transparent;
-  border: 0;
-  outline: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+@media (max-width: 991px) {
+  .section-title .vertical-line span i,
+  .section-title-white .vertical-line span i {
+    left: -28px;
+    top: -54px;
+  }
 }
 
-.blog-sidebar .search-widget button i {
-  color: #858686;
-}
-
-.blog-sidebar .categories-widget ul li {
-  border-bottom: 1px solid #dcdddd;
-}
-
-.blog-sidebar .categories-widget ul li a {
-  font-size: 16px;
-  font-size: clac-rem-value(16);
-  display: block;
-  color: #777778;
-  padding: 5px 0 5px 25px;
-  position: relative;
-}
-
-.blog-sidebar .categories-widget ul li:first-child a {
-  padding-top: 0;
-}
-
-.blog-sidebar .categories-widget ul li a:before {
-  font-family: FontAwesome;
-  content: "\f105";
-  color: #182a4d;
-  position: absolute;
-  left: 2px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.blog-sidebar .categories-widget ul li a:hover:before {
-  color: #879baf;
-}
-
-.blog-sidebar .categories-widget ul li a:hover {
-  color: #879baf;
-}
-
-.blog-sidebar .popular-posts-widget li {
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.blog-sidebar .popular-posts-widget li:last-child {
-  margin-bottom: 0;
-}
-
-.blog-sidebar .popular-posts-widget .date {
-  font-size: 16px;
-  font-size: 0.88889rem;
-  font-weight: 600;
-  color: #879baf;
-  display: inline-block;
-  margin-bottom: 5px;
-}
-
-.blog-sidebar .popular-posts-widget h6 {
-  font-size: 16px;
-  font-size: clac-rem-value(16);
+.section-title .vertical-line span i:before,
+.section-title-white .vertical-line span i:before {
   margin: 0;
-  line-height: 1.7em;
+  font-size: 55px;
+  color: #879baf;
+  opacity: 0.6;
 }
 
-.blog-sidebar .popular-posts-widget h6 a {
-  color: #2f2f2f;
+@media (max-width: 991px) {
+  .section-title .vertical-line span i:before,
+  .section-title-white .vertical-line span i:before {
+    font-size: 55px;
+    /* font-size: 3.05556rem; */
+  }
 }
 
-.blog-sidebar .popular-posts-widget h6 a:hover {
-  color: #4b7a71;
+.section-title .vertical-line:before,
+.section-title-white .vertical-line:before {
+  content: "";
+  background: rgba(135, 155, 175, 0.2);
+  width: 45px;
+  height: 2px;
+  top: 16px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
-.blog-sidebar .populer-tags-widget ul {
+@media (max-width: 991px) {
+  .section-title .vertical-line:before,
+  .section-title-white .vertical-line:before {
+    width: 40px;
+    height: 2px;
+  }
+}
+
+.section-title h2,
+.section-title-white h2 {
+  font-family: "Great Vibes", cursive;
+  background-color: rgba(135, 155, 175, 0.1);
+  font-size: 46px;
+  /* font-size: 2.55556rem; */
+  color: #848383;
+  margin: 59px 0 0;
+  padding: 10px 25px 5px;
+  border-top: 2px solid rgba(135, 155, 175, 0.1);
+  border-bottom: 2px solid rgba(135, 155, 175, 0.1);
+  display: inline-block;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+}
+
+@media (max-width: 1199px) {
+  .section-title h2,
+  .section-title-white h2 {
+    font-size: 40px;
+    /* font-size: 2.22222rem; */
+  }
+}
+
+@media (max-width: 991px) {
+  .section-title h2,
+  .section-title-white h2 {
+    font-size: 35px;
+    /* font-size: 1.94444rem; */
+    margin-top: 52px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-title h2,
+  .section-title-white h2 {
+    font-size: 30px;
+    /* font-size: 1.66667rem; */
+    padding: 8px 10px 3px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-title h2,
+  .section-title-white h2 {
+    margin-top: 45px;
+  }
+}
+
+.section-title-white .vertical-line span {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.section-title-white .vertical-line span i:before {
+  margin: 0;
+  font-size: 65px;
+  color: #fff;
+  opacity: 0.4;
+}
+
+.section-title-white .vertical-line:before,
+.section-title-white .vertical-line:after {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.section-title-white .vertical-line:after {
+  background: #fff;
+}
+
+.section-title-white h2 {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links {
   overflow: hidden;
 }
 
-.blog-sidebar .populer-tags-widget ul li {
+.social-links li {
   float: left;
 }
 
-.blog-sidebar .populer-tags-widget ul li a {
-  background-color: rgba(135, 155, 175, 0.1);
+.social-links li a {
   display: block;
-  font-size: 13px;
-  font-size: 0.72222rem;
-  color: #777778;
+  color: #fff;
   text-align: center;
-  text-transform: uppercase;
-  padding: 5px 10px 5px 25px;
-  border: 1px solid rgba(135, 155, 175, 0.2);
-  margin: 0 5px 5px 0;
-  position: relative;
 }
 
-.blog-sidebar .populer-tags-widget ul li a:before {
-  font-family: FontAwesome;
-  content: "\f02b";
-  font-size: 13px;
-  color: rgba(135, 155, 175, 0.3);
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.blog-sidebar .populer-tags-widget ul li a:hover {
+.social-links li a:hover {
   background-color: #879baf;
-  color: #fff;
-  border-color: #879baf;
 }
 
-.blog-sidebar .populer-tags-widget ul li a:hover:before {
+.page-title {
+  background: url("../images/page-title.jpg") center center/cover no-repeat
+    local;
+  height: 300px;
+  text-align: center;
+  position: relative;
+  display: table;
+  width: 100%;
+}
+
+@media (max-width: 1199px) {
+  .page-title {
+    height: 250px;
+  }
+}
+
+.page-title:before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.page-title .container {
+  width: 100%;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.page-title h2,
+.page-title ol {
   color: #fff;
 }
 
-.page-pagination .pagination {
-  margin: 0;
+.page-title h2 {
+  font-size: 55px;
+  /* font-size: 3.05556rem; */
+  font-weight: 600;
+  margin: 0 0 0.5em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1199px) {
+  .page-title h2 {
+    font-size: 45px;
+    /* font-size: 2.5rem; */
+  }
 }
 
 @media (max-width: 767px) {
-  .page-pagination .pagination {
-    margin-top: -20px;
+  .page-title h2 {
+    font-size: 40px;
+    /* font-size: 2.22222rem; */
   }
 }
 
-.page-pagination .pagination li a {
-  width: 40px;
-  height: 40px;
-  line-height: 37px;
-  font-size: 16px;
-  font-size: 0.88889rem;
-  font-weight: 600;
-  text-align: center;
-  color: #565656;
-  border-radius: 0;
-  border: 1px solid #879baf;
+.page-title .breadcrumb {
+  background-color: transparent;
   padding: 0;
-  margin: 2px;
+  margin: 0;
+  text-align: center;
+}
+
+.page-title .breadcrumb a {
+  color: #fff;
+}
+
+.page-title .breadcrumb ul {
+  display: inline-block;
+}
+
+.page-title .breadcrumb ul li {
+  font-size: 18px;
+  /* font-size: 1rem; */
+  color: #879baf;
+  float: left;
   position: relative;
 }
 
-@media (max-width: 991px) {
-  .page-pagination .pagination li a {
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    font-size: 15px;
-    font-size: 0.83333rem;
+@media (max-width: 1199px) {
+  .page-title .breadcrumb ul li {
+    font-size: 16px;
+    /* font-size: 0.88889rem; */
   }
 }
 
-.page-pagination .pagination li a span {
-  font-size: 14px;
-  font-size: 0.77778rem;
+.page-title .breadcrumb ul > li + li {
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
+@media (max-width: 1199px) {
+  .page-title .breadcrumb ul > li + li {
+    padding-left: 15px;
+    margin-left: 15px;
+  }
+}
+
+.page-title .breadcrumb ul > li + li:before {
+  content: "/";
+  position: absolute;
+  left: -5px;
+  top: 2px;
+  color: #fff;
+}
+
+.preloader {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+.preloader .inner {
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%, 0);
-  -ms-transform: translate(-50%, -50%, 0);
-  transform: translate(-50%, -50%, 0);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-@media (max-width: 991px) {
-  .page-pagination .pagination li a span {
-    font-size: 13px;
-    font-size: 0.72222rem;
-  }
+.preloader .icon {
+  display: block;
+  width: 90px;
+  height: 90px;
+  position: relative;
 }
 
-.page-pagination .pagination li a:hover,
-.page-pagination .pagination li a:focus,
-.page-pagination .pagination li.current a {
-  background-color: #879baf;
-  color: #fff;
+.preloader .icon:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 5px solid #f1f1f1;
+  border-top: 5px solid #879baf;
+  border-radius: 50%;
+  -webkit-animation: rotating 1s linear infinite;
+  animation: rotating 1s linear infinite;
 }
+
+.preloader .icon i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.preloader .icon i:before {
+  font-size: 55px;
+  /* font-size: 3.05556rem; */
+  color: #879baf;
+}
+
+
 
 /*--------------------------------------------------------------
 #0.3	header
@@ -298,6 +524,14 @@ URL:            http://themeforest.net/user/themexriver
   /* style for navigation less than 992px */
   /*navbar collaps less then 992px*/
 /* } */
+
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  /* margin-top: 20px; */
+  /* margin-bottom: 100px; */
+}
 
 .site-header .navigation {
   background-color: #fff;
@@ -320,7 +554,6 @@ URL:            http://themeforest.net/user/themexriver
   -o-transition: all 0.5s;
   -ms-transition: all 0.5s;
   transition: all 0.5s;
-  /*** mega-menu style ***/
 }
 
 .site-header #navbar > ul li a:hover {
@@ -337,7 +570,7 @@ URL:            http://themeforest.net/user/themexriver
   }
   .site-header #navbar > ul > li > a {
     font-size: 16px;
-    font-size: 0.88889rem;
+    /* font-size: 0.88889rem; */
   }
   .site-header #navbar > ul .sub-menu {
     background-color: #fff;
@@ -360,7 +593,7 @@ URL:            http://themeforest.net/user/themexriver
   }
   .site-header #navbar > ul > li .sub-menu a {
     font-size: 14px;
-    font-size: 0.77778rem;
+    /* font-size: 0.77778rem; */
     display: block;
     padding: 8px 15px;
   }
@@ -381,7 +614,7 @@ URL:            http://themeforest.net/user/themexriver
     font-family: "FontAwesome";
     content: "\f105";
     font-size: 15px;
-    font-size: 0.83333rem;
+    /* font-size: 0.83333rem; */
     position: absolute;
     right: 15px;
     top: 50%;
@@ -407,7 +640,7 @@ URL:            http://themeforest.net/user/themexriver
   .site-header #navbar > ul > li a {
     display: block;
     font-size: 14px;
-    font-size: 0.77778rem;
+    /* font-size: 0.77778rem; */
   }
   .site-header #navbar > ul > li .sub-menu li {
     border-bottom: 1px solid #e6e6e6;
@@ -428,7 +661,7 @@ URL:            http://themeforest.net/user/themexriver
     font-family: "FontAwesome";
     content: "\f107";
     font-size: 15px;
-    font-size: 0.83333rem;
+    /* font-size: 0.83333rem; */
     position: absolute;
     right: 15px;
     top: 50%;
@@ -473,7 +706,7 @@ URL:            http://themeforest.net/user/themexriver
   }
   .site-header #navbar .mega-menu-box-title {
     font-size: 14px;
-    font-size: 0.77778rem;
+    /* font-size: 0.77778rem; */
     text-transform: uppercase;
     font-weight: bold;
     display: block;
@@ -483,7 +716,7 @@ URL:            http://themeforest.net/user/themexriver
   }
   .site-header #navbar .mega-menu-list-holder li a {
     font-size: 14px;
-    font-size: 0.77778rem;
+    /* font-size: 0.77778rem; */
     display: block;
     padding: 7px 8px;
     margin-left: -8px;
@@ -525,7 +758,7 @@ URL:            http://themeforest.net/user/themexriver
   }
   .site-header #navbar .mega-menu .mega-menu-box-title {
     font-size: 14px;
-    font-size: 0.77778rem;
+    /* font-size: 0.77778rem; */
     text-transform: uppercase;
     display: block;
     border-bottom: 1px dotted #b3b3b3;
@@ -680,7 +913,7 @@ URL:            http://themeforest.net/user/themexriver
 .header-style-2 .couple-logo h1 {
   font-family: "Great Vibes", cursive;
   font-size: 35px;
-  font-size: 1.94444rem;
+  /* font-size: 1.94444rem; */
   margin: 0;
   text-shadow: 1px 1px 2px #999999;
 }
@@ -689,21 +922,21 @@ URL:            http://themeforest.net/user/themexriver
   .header-style-1 .couple-logo h1,
   .header-style-2 .couple-logo h1 {
     font-size: 30px;
-    font-size: 1.66667rem;
+    /* font-size: 1.66667rem; */
   }
 }
 
 .header-style-1 .couple-logo .fi:before,
 .header-style-2 .couple-logo .fi:before {
   font-size: 25px;
-  font-size: 1.38889rem;
+  /* font-size: 1.38889rem; */
 }
 
 @media (max-width: 991px) {
   .header-style-1 .couple-logo .fi:before,
   .header-style-2 .couple-logo .fi:before {
     font-size: 20px;
-    font-size: 1.11111rem;
+    /* font-size: 1.11111rem; */
   }
 }
 
@@ -746,8 +979,7 @@ URL:            http://themeforest.net/user/themexriver
 @media screen and (min-width: 992px) {
   .header-style-1 #navbar > ul > li > a,
   .header-style-2 #navbar > ul > li > a {
-    font-size: 18px;
-    font-size: 1rem;
+    font-size: 15px;
     font-weight: 600;
     color: #413d3d;
     padding: 35px 17px;
@@ -761,7 +993,7 @@ URL:            http://themeforest.net/user/themexriver
   .header-style-1 #navbar > ul > li .sub-menu a,
   .header-style-2 #navbar > ul > li .sub-menu a {
     font-size: 16px;
-    font-size: 0.88889rem;
+    /* font-size: 0.88889rem; */
     color: #413d3d;
     padding: 10px 15px;
   }
@@ -913,14 +1145,14 @@ URL:            http://themeforest.net/user/themexriver
 .hero .slick-prev:before,
 .hero .slick-next:before {
   font-size: 25px;
-  font-size: 1.38889pxrem;
+  /* font-size: 1.38889pxrem; */
 }
 
 @media (max-width: 991px) {
   .hero .slick-prev:before,
   .hero .slick-next:before {
     font-size: 20px;
-    font-size: 1.11111pxrem;
+    /* font-size: 1.11111pxrem; */
   }
 }
 
@@ -978,7 +1210,7 @@ URL:            http://themeforest.net/user/themexriver
 .hero .wedding-announcement .couple-name-merried-text h2 {
   font-family: "Great Vibes", cursive;
   font-size: 90px;
-  font-size: 5rem;
+  /* font-size: 5rem; */
   color: #fff;
   margin: 0 0 0.4em;
   position: relative;
@@ -988,20 +1220,20 @@ URL:            http://themeforest.net/user/themexriver
 @media (max-width: 1199px) {
   .hero .wedding-announcement .couple-name-merried-text h2 {
     font-size: 70px;
-    font-size: 3.88889rem;
+    /* font-size: 3.88889rem; */
   }
 }
 
 @media (max-width: 991px) {
   .hero .wedding-announcement .couple-name-merried-text h2 {
     font-size: 55px;
-    font-size: 3.05556rem;
+    /* font-size: 3.05556rem; */
   }
 }
 
 .hero .wedding-announcement .married-text h4 {
   font-size: 26px;
-  font-size: 1.44444rem;
+  /* font-size: 1.44444rem; */
   color: #fff;
   text-transform: uppercase;
   margin: 0;
@@ -1017,7 +1249,7 @@ URL:            http://themeforest.net/user/themexriver
 @media (max-width: 1199px) {
   .hero .wedding-announcement .married-text h4 {
     font-size: 20px;
-    font-size: 1.11111rem;
+    /* font-size: 1.11111rem; */
     padding: 8px 18px;
   }
 }
@@ -1025,7 +1257,7 @@ URL:            http://themeforest.net/user/themexriver
 @media (max-width: 991px) {
   .hero .wedding-announcement .married-text h4 {
     font-size: 17px;
-    font-size: 0.94444rem;
+    /* font-size: 0.94444rem; */
     padding: 8px 14px;
   }
 }
@@ -1132,7 +1364,7 @@ URL:            http://themeforest.net/user/themexriver
 .hero .wedding-announcement .save-the-date h4 {
   font-family: "Great Vibes", cursive;
   font-size: 40px;
-  font-size: 2.22222rem;
+  /* font-size: 2.22222rem; */
   color: #fff;
   margin: 55px 0 0.2em;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
@@ -1141,7 +1373,7 @@ URL:            http://themeforest.net/user/themexriver
 @media (max-width: 1199px) {
   .hero .wedding-announcement .save-the-date h4 {
     font-size: 35px;
-    font-size: 1.94444rem;
+    /* font-size: 1.94444rem; */
     margin: 45px 0 0.15em;
   }
 }
@@ -1149,31 +1381,32 @@ URL:            http://themeforest.net/user/themexriver
 @media (max-width: 991px) {
   .hero .wedding-announcement .save-the-date h4 {
     font-size: 28px;
-    font-size: 1.55556rem;
+    /* font-size: 1.55556rem; */
     margin: 30px 0 0.15em;
   }
 }
 
 .hero .wedding-announcement .save-the-date .date {
-  font-size: 20px;
+  font-size: 18px;
   /* font-size: 1.11111rem; */
   color: pink;
   color: #D20143;
   color: #fff;
+  margin-bottom: 10px;
   /* color: orange; */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 1199px) {
   .hero .wedding-announcement .save-the-date .date {
-    font-size: 26px;
+    font-size: 16px;
     /* font-size: 1rem; */
   }
 }
 
 @media (max-width: 991px) {
   .hero .wedding-announcement .save-the-date .date {
-    font-size: 24px;
+    font-size: 14px;
     /* font-size: 0.88889rem; */
   }
 }
@@ -1231,4 +1464,592 @@ URL:            http://themeforest.net/user/themexriver
 /*--------------------------------------------------------------
 #0.5	footer
 --------------------------------------------------------------*/
+.site-footer {
+  background: url("") center center/cover no-repeat
+    local;
+  text-align: center;
+  color: #fff;
+  padding: 160px 0;
+  position: relative;
+}
 
+@media (max-width: 1199px) {
+  .site-footer {
+    padding: 110px 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .site-footer {
+    padding: 90px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-footer {
+    padding: 70px 0;
+  }
+}
+
+.site-footer:before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.site-footer h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 67px;
+  /* font-size: 3.72222rem; */
+  color: #fff;
+  margin: 0 0 0.3em;
+  padding: 0 250px;
+  text-transform: capitalize;
+  letter-spacing: 5px;
+}
+
+@media (max-width: 1199px) {
+  .site-footer h2 {
+    font-size: 55px;
+    /* font-size: 3.05556rem; */
+    padding: 0 200px;
+  }
+}
+
+@media (max-width: 991px) {
+  .site-footer h2 {
+    font-size: 45px;
+    /* font-size: 2.5rem; */
+    padding: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-footer h2 {
+    font-size: 35px;
+    /* font-size: 1.94444rem; */
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-footer h2 + span {
+    font-size: 15px;
+    /* font-size: 0.83333rem; */
+  }
+}
+
+.site-footer .back-to-top {
+  position: absolute;
+  left: 50%;
+  top: -25px;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.site-footer .back-to-top a {
+  display: inline-block;
+  background: #fff;
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.site-footer .back-to-top a span {
+  position: absolute;
+  left: 0;
+  -webkit-animation: pointerMoving 1.3s infinite;
+  animation: pointerMoving 1.3s infinite;
+}
+
+.site-footer .back-to-top .fi {
+  display: inline-block;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 0;
+  left: -4px;
+}
+
+.site-footer .back-to-top .fi:before {
+  font-size: 27px;
+  color: #000;
+  text-shadow: 1px 1px 2px #000;
+}
+
+@-webkit-keyframes pointerMoving {
+  0% {
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    opacity: 0.5;
+  }
+  80% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes pointerMoving {
+  0% {
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    opacity: 0.5;
+  }
+  80% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    opacity: 0.5;
+  }
+}
+
+.sticky {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  opacity: 0;
+}
+
+.sticky-2 {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: -100px;
+  z-index: 9999;
+  opacity: 0;
+  -webkit-transition: all 0.7s;
+  -moz-transition: all 0.7s;
+  -o-transition: all 0.7s;
+  -ms-transition: all 0.7s;
+  transition: all 0.7s;
+}
+
+.sticky-on {
+  opacity: 1;
+  top: 0;
+}
+
+/* #couple */
+
+.wedding-couple-section .gb {
+  overflow: hidden;
+}
+
+.wedding-couple-section .gb > div {
+  width: 50%;
+  float: left;
+}
+
+@media (max-width: 991px) {
+  .wedding-couple-section .gb > div {
+    width: 100%;
+    float: none;
+  }
+}
+
+.wedding-couple-section .img-holder img {
+  max-width: 100%;
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (max-width: 470px) {
+  .wedding-couple-section .img-holder img {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.wedding-couple-section .details {
+  background-color: rgba(135, 155, 175, 0.05);
+  padding: 50px 55px;
+}
+
+@media screen and (min-width: 992px) {
+  .wedding-couple-section .details {
+    display: table;
+  }
+}
+
+@media (max-width: 991px) {
+  .wedding-couple-section .details {
+    padding: 40px 45px;
+  }
+}
+
+@media (max-width: 767px) {
+  .wedding-couple-section .details {
+    padding: 40px 25px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .wedding-couple-section .details > .details-inner {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.wedding-couple-section .details h3 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #3d3d3d;
+  margin: 0 0 0.7em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1199px) {
+  .wedding-couple-section .details h3 {
+    font-size: 22px;
+    /* font-size: 1.22222rem; */
+  }
+}
+
+@media (max-width: 767px) {
+  .wedding-couple-section .details h3 {
+    font-size: 20px;
+    /* font-size: 1.11111rem; */
+  }
+}
+
+.wedding-couple-section .details .signature {
+  font-family: "Great Vibes", cursive;
+  font-size: 28px;
+  /* font-size: 1.55556rem; */
+  display: block;
+  padding-left: 25px;
+  margin-top: 15px;
+  position: relative;
+}
+
+@media (max-width: 1199px) {
+  .wedding-couple-section .details .signature {
+    font-size: 22px;
+    /* font-size: 1.22222rem; */
+  }
+}
+
+.wedding-couple-section .details .signature:before {
+  content: "";
+  background-color: #000;
+  width: 15px;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.wedding-couple-section .details .social-links {
+  margin-top: 20px;
+}
+
+.wedding-couple-section .details .social-links > li + li {
+  margin-left: 3px;
+}
+
+.wedding-couple-section .details .social-links a {
+  background-color: #7cafa5;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 14px;
+  /* font-size: 0.77778rem; */
+  color: #fff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+@media (max-width: 1199px) {
+  .wedding-couple-section .details .social-links a {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 13px;
+    /* font-size: 0.72222rem; */
+  }
+}
+
+.wedding-couple-section .details .social-links a:hover {
+  background-color: #879baf;
+}
+
+@media screen and (min-width: 992px) {
+  .wedding-couple-section .bride {
+    text-align: right;
+  }
+  .wedding-couple-section .bride .signature {
+    padding-right: 25px;
+  }
+  .wedding-couple-section .bride .signature:before {
+    left: auto;
+    right: 0;
+  }
+  .wedding-couple-section .bride .social-links {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 991px) {
+  .wedding-couple-section .img-holder,
+  .wedding-couple-section .details {
+    height: auto !important;
+  }
+  .wedding-couple-section .bride {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 470px) {
+  .wedding-couple-section .img-holder {
+    background: none !important;
+  }
+}
+
+
+.story-section .story-timeline {
+  position: relative;
+}
+
+.story-section .story-timeline:after {
+  content: "";
+  background: rgba(135, 155, 175, 0.1);
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 991px) {
+  .story-section .story-timeline:after {
+    display: none;
+  }
+}
+
+.story-section .story-timeline > .row {
+  position: relative;
+}
+
+.story-section .story-timeline > .row .horizontal-line {
+  background: rgba(135, 155, 175, 0.1);
+  width: 70%;
+  height: 1px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.story-section .story-timeline > .row + .row {
+  margin-top: 50px;
+  padding-top: 15px;
+}
+
+@media (max-width: 991px) {
+  .story-section .story-timeline > .row + .row {
+    padding-top: 0;
+  }
+}
+
+.story-section .story-timeline > .row > .col:first-child {
+  padding: 0 45px 0 100px;
+}
+
+@media (max-width: 1199px) {
+  .story-section .story-timeline > .row > .col:first-child {
+    padding: 0 45px 0 70px;
+  }
+}
+
+@media (max-width: 991px) {
+  .story-section .story-timeline > .row > .col:first-child {
+    padding: 0 15px;
+  }
+}
+
+.story-section .story-timeline > .row > .col:last-child {
+  padding: 0 100px 0 45px;
+}
+
+@media (max-width: 1199px) {
+  .story-section .story-timeline > .row > .col:last-child {
+    padding: 0 70px 0 45px;
+  }
+}
+
+@media (max-width: 991px) {
+  .story-section .story-timeline > .row > .col:last-child {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 991px) {
+  .story-section .story-timeline .story-text {
+    background: rgba(135, 155, 175, 0.05);
+    padding: 35px 25px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .story-section .story-timeline .right-align-text {
+    text-align: right;
+  }
+}
+
+.story-section .story-timeline .text-holder {
+  border-top: 1px solid rgba(135, 155, 175, 0.1);
+  padding-top: 45px !important;
+  position: relative;
+}
+
+@media (max-width: 991px) {
+  .story-section .story-timeline .text-holder {
+    border: 0;
+    padding-top: 0 !important;
+  }
+}
+
+.story-section .story-timeline .text-holder .heart {
+  background-color: #9cc2bb;
+  width: 43px;
+  height: 43px;
+  line-height: 41px;
+  text-align: center;
+  border: 2px solid rgba(135, 155, 175, 0.5);
+  position: absolute;
+  left: -22px;
+  top: -22px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+@media (max-width: 991px) {
+  .story-section .story-timeline .text-holder .heart {
+    display: none;
+  }
+}
+
+.story-section .story-timeline .text-holder .fa {
+  color: #fff;
+}
+
+.story-section .story-timeline .right-heart .heart {
+  left: auto;
+  right: -22px;
+}
+
+.story-section .story-timeline h3 {
+  font-size: 22px;
+  /* font-size: 1.22222rem; */
+  font-weight: 600;
+  color: #879baf;
+  margin: 0 0 0.5em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 991px) {
+  .story-section .story-timeline h3 {
+    font-size: 20px;
+    /* font-size: 1.11111rem; */
+  }
+}
+
+@media (max-width: 767px) {
+  .story-section .story-timeline h3 {
+    font-size: 18px;
+    /* font-size: 1rem; */
+  }
+}
+
+.story-section .story-timeline .date {
+  font-size: 14px;
+  /* font-size: 0.77778rem; */
+  font-weight: 600;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.story-section .story-timeline img {
+  display: inline-block;
+}
+
+.story-section .video-holder {
+  position: relative;
+}
+
+.story-section .video-holder .video-play-btn {
+  background: rgba(255, 255, 255, 0.8);
+  width: 60px;
+  height: 60px;
+  line-height: 57px;
+  text-align: center;
+  font-size: 25px;
+  /* font-size: 1.38889rem; */
+  border: 2px solid #fff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.story-section .video-holder .video-play-btn i {
+  color: #879baf;
+}
+
+.story-section .story-timeline .story-slider .owl-controls {
+  display: none;
+}
