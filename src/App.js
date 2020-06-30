@@ -1,13 +1,6 @@
 import React from "react";
 import jsonp from "jsonp";
 import ExampleWithLightbox from "./ExampleWithLightbox";
-import henna from "./henna-painted-hand.svg";
-import bride from "./wedding.svg";
-import wedding from "./indian.svg";
-import samosa from "./samosa.svg";
-import heart from "./heart.svg";
-import floor from "./floor.svg";
-import Footer from "rc-footer";
 import "rc-footer/assets/index.css"; // import 'rc-footer/asssets/index.less';
 import $ from "jquery";
 import "./example.css";
@@ -19,8 +12,14 @@ import "./css/font-awesome.min.css"
 import "./css/bootstrap.min.css"
 import "./css/magnific-popup.css"
 import "./css/owl.carousel.css"
+import groom from "./images/groom.jpg"
+import bride from "./images/bride.jpg"
 import WOW from 'wowjs';
 import StickyHeader from 'react-sticky-header';
+import storyPic from "./images/story/img-2.jpg"
+import storyPic2 from "./images/story/img-3.jpg"
+import ctaImg from "./images/ours/IMG_4349.jpg"
+import kiss from "../src/mandap2.jpg"
 
 
 
@@ -32,9 +31,54 @@ class App extends React.Component {
     this.myRef = React.createRef();
   }
   componentDidMount() {
+// popup video
+if ($(".video-play-btn").length) {
+  $(".video-play-btn").on("click", function(){
+      $.fancybox({
+          href: this.href,
+          type: $(this).data("type"),
+          'title'         : this.title,
+          helpers     : {
+              title : { type : 'inside' },
+              media : {}
+          },
+
+          beforeShow : function(){
+              $(".fancybox-wrap").addClass("gallery-fancybox");
+          }
+      });
+      return false
+  });
+}
+
+    // this.bgParallax()
+
+    if ($(".wedding-couple-section .gb").length) {
+
+      var imgHolder = $(".wedding-couple-section .gb .img-holder");
+
+      imgHolder.each(function() {
+          var $this = $(this);
+          var imgHolderPic = $this.find("img").attr("src");
+
+          $this.css({
+              backgroundImage: "url("+ imgHolderPic +")",
+              backgroundSize: "cover",
+              backgroundPosition: "center center"
+          })
+      })
+  }
     // mehendi photos
     this.loadPhotos("72157714640654906", "account1");
-   
+    if($(".music-box").length) {
+      var musicBtn = $(".music-box-toggle-btn"),
+          musicBox = $(".music-holder");
+
+      musicBtn.on("click", function() {
+          musicBox.toggleClass("toggle-music-box");
+          return false;
+      })
+  }
     setTimeout(function(){ 
       const elem = $("li.number-link")
       $(elem[0]).attr("class", "number-link-active")
@@ -46,32 +90,6 @@ class App extends React.Component {
     // let x = elem[0]
 
     window.addEventListener("scroll", function() {
-//       function  bgParallax() {
-//         if ($(".parallax").length) {
-//             $(".parallax").each(function() {
-//                 var height = $(this).position().top;
-//                 var resize     = height - $(window).scrollTop();
-//                 var parallaxSpeed = $(this).data("speed");
-//                 var doParallax = -(resize / parallaxSpeed);
-//                 var positionValue   = doParallax + "px";
-//                 var img = $(this).data("bg-image");
-    
-//                 $(this).css({
-//                     backgroundImage: "url(" + img + ")",
-//                     backgroundPosition: "50%" + positionValue,
-//                     backgroundSize: "cover"
-//                 });
-    
-//                 if ( window.innerWidth < 768) {
-//                     $(this).css({
-//                         backgroundPosition: "center center"
-//                     });
-//                 }
-//             });
-//         }
-//     }
-//       console.log('HA')
-//       bgParallax();
 
      function activeMenuItem($links) {
       var top = $(window).scrollTop(),
@@ -106,7 +124,30 @@ class App extends React.Component {
 
 
 
+  bgParallax() {
+    if ($(".parallax").length) {
+        $(".parallax").each(function() {
+            var height = $(this).position().top;
+            var resize     = height - $(window).scrollTop();
+            var parallaxSpeed = $(this).data("speed");
+            var doParallax = -(resize / parallaxSpeed);
+            var positionValue   = doParallax + "px";
+            var img = $(this).data("bg-image");
 
+            $(this).css({
+                backgroundImage: "url(" + img + ")",
+                backgroundPosition: "50%" + positionValue,
+                backgroundSize: "cover"
+            });
+
+            if ( window.innerWidth < 768) {
+                $(this).css({
+                    backgroundPosition: "center center"
+                });
+            }
+        });
+    }
+}
 
 
 
@@ -262,7 +303,7 @@ scrollToStory() {
     }
     // mehendi
     if (photoset_id === "72157714640654906") {
-      this.setState({ photosPerPage: 48 });
+      this.setState({ photosPerPage: 62 });
     }
     // wedding
     if (photoset_id === "72157714642026603") {
@@ -368,6 +409,16 @@ scrollToStory() {
             </div>
         </div>
 
+        <div class="music-box">
+            <button class="music-box-toggle-btn">
+                <i class="fa fa-music"></i>
+            </button>
+
+            <div class="music-holder">
+                <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/348535484&color=black&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+            </div>
+        </div>
+
 <section class="hero">
             <div class="hero-slider hero-slider-s1">
                 <div class="slide-item">
@@ -450,7 +501,7 @@ scrollToStory() {
                     <div class="col col-xs-12">
                         <div class="gb groom">
                             <div class="img-holder wow fadeInLeftSlow">
-                                <img src="images/ours/IMG_4340.jpg" alt/>
+                                <img src={groom} alt/>
                             </div>
                             <div class="details">
                                 <div class="details-inner">
@@ -459,8 +510,8 @@ scrollToStory() {
                                     <span class="signature">Anand</span>
                                     <ul class="social-links">
                                         <li><a href="https://github.com/ananddharne" target="blank"><i class="fa fa-github"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="https://twitter.com/DharneAnand"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="https://www.instagram.com/anandharne/?hl=en"><i class="fa fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -472,14 +523,14 @@ scrollToStory() {
                                     <p>Hi I am Komal , dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
                                     <span class="signature">Komal</span>
                                     <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="https://www.instagram.com/komaldarekar/?hl=en"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="https://www.facebook.com/komal.darekar.1"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="https://twitter.com/komaldarekar"><i class="fa fa-twitter"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="img-holder wow fadeInRightSlow">
-                                <img src="images/ours/IMG_4340.jpg" alt/>
+                                <img src={bride} alt/>
                             </div>
                         </div>
                     </div>
@@ -519,8 +570,8 @@ scrollToStory() {
                             <div class="row">
                                 <div class="col col-md-6">
                                     <div class="img-holder right-align-text story-slider">
-                                        <img src="images/story/img-2.jpg" alt class="img img-responsive"/>
-                                        <img src="images/story/img-3.jpg" alt class="img img-responsive"/>
+                                        <img src={storyPic} alt class="img img-responsive"/>
+                                        {/* <img src={storyPic2} alt class="img img-responsive"/> */}
                                     </div>
                                 </div>
                                 <div class="col col-md-6 text-holder">
@@ -555,7 +606,7 @@ scrollToStory() {
                             <div class="row">
                                 <div class="col col-md-6">
                                     <div class="img-holder video-holder">
-                                        <img src="images/story/img-8.jpg" alt class="img img-responsive"/>
+                                        <img src={storyPic2} alt class="img img-responsive"/>
                                         <a href="https://www.youtube.com/embed/XSGBVzeBUbk?autoplay=1" data-type="iframe" class="video-play-btn">
                                             <i class="fa fa-play"></i>
                                         </a>
@@ -573,6 +624,16 @@ scrollToStory() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div> 
+            </div>
+        </section>
+
+        <section class="cta section-padding parallax" style={{backgroundImage: `url(${kiss})`}} data-speed="7">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <h2>Celebrate Our Love!</h2>
                     </div>
                 </div> 
             </div>
